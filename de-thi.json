@@ -7,9 +7,7 @@
     "soCau": "28 câu",
     "moTa": "Đề kiểm tra thử môn Vật Lý",
     "link": "https://anh10-coder.github.io/V-T-L-1/"
-  }
-]
-[
+  },
   {
     "id": 2,
     "tenDe": "Đề Lý 2 - Kiểm tra thử",
@@ -18,9 +16,7 @@
     "soCau": "28 câu",
     "moTa": "Đề kiểm tra thử môn Vật Lý",
     "link": "https://anh10-coder.github.io/V-T-L-2/"
-  }
-]
-[
+  },
   {
     "id": 3,
     "tenDe": "Đề Lý 3 - Kiểm tra thử",
@@ -31,3 +27,6 @@
     "link": "https://anh10-coder.github.io/V-T-L-3/"
   }
 ]
+
+    
+   
