@@ -140,7 +140,6 @@
 
         /* ==========================================================================
            ULTRA-REFINED LIQUID GLASS SURFACES & MODERN TACTILE BUTTON SYSTEM
-           (Zero plastic feel, silky transitions, delicate specular highlights)
            ========================================================================== */
         .glass-panel {
             background: linear-gradient(160deg, rgba(15, 23, 42, 0.62) 0%, rgba(7, 12, 28, 0.72) 100%);
@@ -278,8 +277,7 @@
 </head>
 <body class="min-h-screen flex flex-col selection:bg-cyan-400 selection:text-slate-950">
 
-    <!-- Animated Living Cosmic Background:
-         Galaxies + Solar System + Cosmic Jellyfish + Space Whales + Manta Rays + Spaceships + Satellites -->
+    <!-- Animated Living Cosmic Background -->
     <div class="cosmic-nebula-wrapper">
         <div class="galaxy-ring"></div>
         <div class="nebula-blob nebula-1"></div>
@@ -330,10 +328,10 @@
         </div>
     </header>
 
-    <!-- Main Content (Completely transparent & hidden when empty so 100% of the cosmic background shines through) -->
+    <!-- Main Content -->
     <main class="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-8 space-y-5 pointer-events-none">
 
-        <!-- Unified Control Bar: Automatically hidden when there are 0 exams -->
+        <!-- Unified Control Bar -->
         <section id="controlBarSection" class="hidden glass-panel rounded-2xl p-3.5 sm:p-4 pointer-events-auto">
             <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                 <!-- Folder Pills Bar -->
@@ -352,7 +350,7 @@
             </div>
         </section>
 
-        <!-- Exam Directory Content (Empty when 0 exams so background is 100% visible) -->
+        <!-- Exam Directory Content -->
         <section id="examListContainer" class="space-y-6 pointer-events-auto">
             <!-- Rendered dynamically -->
         </section>
@@ -404,7 +402,7 @@
         </div>
     </div>
 
-    <!-- STREAMLINED ADD EXAM MODAL (Secure Password, No Hints) -->
+    <!-- STREAMLINED ADD EXAM MODAL -->
     <div id="addExamModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-md">
         <div class="glass-panel w-full max-w-md rounded-3xl border border-white/15 shadow-2xl overflow-hidden">
             <div class="px-5 py-4 bg-slate-950/50 border-b border-white/10 flex items-center justify-between">
@@ -482,7 +480,7 @@
                     </div>
                 </div>
 
-                <!-- 3. Secure Admin Password (NO HINTS EVER SHOWN) -->
+                <!-- 3. Secure Admin Password -->
                 <div id="passwordFieldWrapper">
                     <label class="block text-xs font-medium text-amber-200/90 mb-1.5">
                         <i class="fa-solid fa-shield-halved mr-1 text-amber-300"></i>Mật khẩu quản trị <span class="text-rose-400">*</span>
@@ -514,7 +512,7 @@
     <!-- TOAST NOTIFICATION CONTAINER -->
     <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
 
-    <!-- Application Logic, ASMR Sound Engine, Security & Living Universe -->
+    <!-- Application Logic, JSON Loader, ASMR Sound Engine & Living Universe -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
         import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
@@ -522,7 +520,6 @@
 
         // ============================================================================
         // 1. WEB AUDIO API ZEN & ASMR STRESS-RELIEF SOUND ENGINE
-        //    (Warm water-drop, crystal kalimba, velvet bamboo tap, singing bowl)
         // ============================================================================
         let audioCtx = null;
         let soundEnabled = true;
@@ -541,13 +538,11 @@
             return audioCtx;
         }
 
-        // Primary Button Sound: Soothing Warm Water-Drop / Kalimba Harmonic Tone
         window.playCalmingDrop = function() {
             const ctx = getAudioContext();
             if (!ctx) return;
             const now = ctx.currentTime;
 
-            // Warm Low-Pass Filter so there is never any harsh high frequency
             const filter = ctx.createBiquadFilter();
             filter.type = 'lowpass';
             filter.frequency.setValueAtTime(1150, now);
@@ -557,14 +552,12 @@
             masterGain.gain.linearRampToValueAtTime(0.11, now + 0.014);
             masterGain.gain.exponentialRampToValueAtTime(0.0008, now + 0.34);
 
-            // Fundamental warm sine drop (gentle upward-then-soft-settle water drop contour)
             const osc1 = ctx.createOscillator();
             osc1.type = 'sine';
             osc1.frequency.setValueAtTime(360, now);
             osc1.frequency.exponentialRampToValueAtTime(528, now + 0.065);
             osc1.frequency.exponentialRampToValueAtTime(440, now + 0.32);
 
-            // Soft harmonic fifth overtone (triangle wave attenuated)
             const osc2 = ctx.createOscillator();
             const gain2 = ctx.createGain();
             osc2.type = 'triangle';
@@ -585,7 +578,6 @@
             osc2.stop(now + 0.35);
         };
 
-        // Secondary Button / Pill Sound: Velvet Bamboo / Soft Pebble Tap
         window.playSoftTap = function() {
             const ctx = getAudioContext();
             if (!ctx) return;
@@ -613,12 +605,10 @@
             osc.stop(now + 0.15);
         };
 
-        // Success / Save Sound: Zen Singing Bowl Soft Harmonic Bloom
         function playZenSuccessChord() {
             const ctx = getAudioContext();
             if (!ctx) return;
             const now = ctx.currentTime;
-            // Healing 528Hz & harmonic intervals
             const notes = [440, 554.37, 659.25, 880];
             notes.forEach((freq, idx) => {
                 const start = now + idx * 0.055;
@@ -638,7 +628,6 @@
             });
         }
 
-        // Gentle Muted Tone for Close / Warning (Never harsh)
         function playGentleLowTone() {
             const ctx = getAudioContext();
             if (!ctx) return;
@@ -676,9 +665,8 @@
         };
 
         // ============================================================================
-        // 2. SECURE PASSWORD VERIFICATION (ZERO PLAIN-TEXT, ZERO HINTS)
+        // 2. SECURE PASSWORD VERIFICATION
         // ============================================================================
-        // Obfuscated byte signature of the admin password so plain text is never exposed
         const _SEC_SALT = 0x5A;
         const _SEC_BYTES = [107, 104, 105, 110, 111, 108, 109, 98, 99, 124, 112, 114, 123, 26, 121];
         let isAdminUnlocked = false;
@@ -705,7 +693,7 @@
                 color: 'text-cyan-400',
                 iconBox: 'bg-gradient-to-br from-cyan-500/25 to-blue-600/25 border-cyan-400/35 text-cyan-300',
                 badgeBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
-                keywords: ['vật lý', 'vat ly', 'vật lí', 'đề lý', 'de ly', 'môn lý', 'vl12', 'vl11', 'vl10', 'v-t-l', 'ly-12']
+                keywords: ['vật lý', 'vat ly', 'vật lí', 'đề lý', 'de ly', 'môn lý', 'vl12', 'vl11', 'vl10', 'v-t-l', 'ly-12', 'kiểm tra', 'kiem tra']
             },
             {
                 folder: 'Toán Học',
@@ -825,12 +813,12 @@
             }
 
             return {
-                folder: cleanName || 'Mã Đề Chung',
-                icon: 'fa-satellite-dish',
-                codePrefix: 'MĐ',
-                color: 'text-amber-400',
-                iconBox: 'bg-gradient-to-br from-amber-500/25 to-yellow-600/25 border-amber-400/35 text-amber-300',
-                badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/30'
+                folder: cleanName || 'Vật Lý',
+                icon: 'fa-atom',
+                codePrefix: 'VL',
+                color: 'text-cyan-400',
+                iconBox: 'bg-gradient-to-br from-cyan-500/25 to-blue-600/25 border-cyan-400/35 text-cyan-300',
+                badgeBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30'
             };
         }
 
@@ -839,13 +827,14 @@
             const codeMatch = title.match(/(?:mã\s*đề|đề\s*số|đề|mã)\s*[:#-]?\s*(\d{1,4}[A-Za-z]?)/i);
             if (codeMatch && codeMatch[1]) {
                 const padded = codeMatch[1].length === 1 ? `0${codeMatch[1]}` : codeMatch[1];
-                return `${meta.codePrefix || 'MĐ'}-${padded}`;
+                return `${meta.codePrefix || 'VL'}-${padded}`;
             }
-            const anyNum = title.match(/(\d{2,4})/);
+            const anyNum = title.match(/(\d{1,4})/);
             if (anyNum && anyNum[1]) {
-                return `${meta.codePrefix || 'MĐ'}-${anyNum[1]}`;
+                const padded = anyNum[1].length === 1 ? `0${anyNum[1]}` : anyNum[1];
+                return `${meta.codePrefix || 'VL'}-${padded}`;
             }
-            return `${meta.codePrefix || 'MĐ'}-01`;
+            return `${meta.codePrefix || 'VL'}-01`;
         }
 
         function updateModalFolderIconPreview(folderName) {
@@ -857,8 +846,9 @@
         }
 
         // ============================================================================
-        // 4. STATE & FIREBASE REAL-TIME SYNC (DEFAULT EXAM REMOVED)
+        // 4. ĐỌC FILE JSON (`de-thi.json`) & ĐỒNG BỘ DỮ LIỆU
         // ============================================================================
+        let jsonExams = [];
         let customExams = [];
         let activeFolder = 'ALL';
         let manualFolderEdited = false;
@@ -870,6 +860,55 @@
         let auth = null;
         let currentUser = null;
         const appId = typeof __app_id !== 'undefined' ? __app_id : 'cosmic-exam-hub-v1';
+
+        // Chuẩn hóa mỗi mục trong de-thi.json (hỗ trợ cả tiếng Việt lẫn tiếng Anh)
+        function normalizeExamItem(raw, idx = 0) {
+            if (!raw || typeof raw !== 'object') return null;
+            const title = String(raw.tenDe || raw.title || raw.name || '').trim();
+            const url = String(raw.link || raw.url || raw.href || '').trim();
+            if (!title || !url) return null;
+
+            const folder = String(raw.monHoc || raw.folder || raw.chuDe || '').trim() || detectFolderFromExamName(title, url);
+            const description = String(raw.moTa || raw.description || '').trim();
+            const duration = String(raw.thoiGian || raw.duration || '').trim();
+            const questionCount = String(raw.soCau || raw.questions || '').trim();
+            const subTopic = String(raw.chuDe || '').trim();
+
+            return {
+                id: String(raw.id !== undefined ? `json-${raw.id}` : `json-${idx + 1}`),
+                title,
+                url,
+                folder,
+                description,
+                duration,
+                questionCount,
+                subTopic,
+                fromJson: true,
+                createdAt: raw.createdAt || (Date.now() - idx * 1000)
+            };
+        }
+
+        // Tự động tải danh sách đề từ file de-thi.json trên GitHub Pages
+        async function loadJsonExams() {
+            const candidateFiles = ['./de-thi.json', './dethi.json', './data.json'];
+            for (const filePath of candidateFiles) {
+                try {
+                    const res = await fetch(`${filePath}?t=${Date.now()}`, { cache: 'no-store' });
+                    if (!res.ok) continue;
+                    const data = await res.json();
+                    const list = Array.isArray(data) ? data : (Array.isArray(data.exams) ? data.exams : [data]);
+                    const parsed = list.map((item, idx) => normalizeExamItem(item, idx)).filter(Boolean);
+                    if (parsed.length > 0) {
+                        jsonExams = parsed;
+                        renderAll();
+                        return;
+                    }
+                } catch (e) {
+                    // Thử file tiếp theo nếu có
+                }
+            }
+            renderAll();
+        }
 
         async function initFirebaseSync() {
             try {
@@ -896,9 +935,9 @@
                             const loaded = [];
                             snapshot.forEach((docSnap) => {
                                 const data = docSnap.data();
-                                // Ignore any legacy default exam id if it ever existed
                                 if (docSnap.id !== 'vat-ly-12-de-2') {
-                                    loaded.push({ id: docSnap.id, ...data });
+                                    const norm = normalizeExamItem({ id: docSnap.id, ...data });
+                                    if (norm) loaded.push({ ...norm, id: docSnap.id, fromJson: false });
                                 }
                             });
                             customExams = loaded;
@@ -909,13 +948,19 @@
                     }
                 });
             } catch (err) {
-                console.warn("Chế độ trực tiếp:", err);
                 renderAll();
             }
         }
 
         function getAllExams() {
             const map = new Map();
+            // 1. Nạp toàn bộ đề từ file de-thi.json
+            jsonExams.forEach(ex => {
+                if (ex && ex.title && ex.url) {
+                    map.set(ex.id, ex);
+                }
+            });
+            // 2. Nạp thêm đề tùy chỉnh (nếu có)
             customExams.forEach(ex => {
                 if (ex && ex.title && ex.url && ex.id !== 'vat-ly-12-de-2') {
                     const resolvedFolder = (ex.folder && ex.folder.trim())
@@ -929,14 +974,12 @@
 
         // ============================================================================
         // 5. RENDER FOLDER PILLS & EXAM CARDS
-        //    (Hides all bars/containers when empty so cosmic background is 100% visible)
         // ============================================================================
         function renderAll() {
             const allExams = getAllExams();
             const controlBarSection = document.getElementById('controlBarSection');
             const examListContainer = document.getElementById('examListContainer');
 
-            // Requirement #4: When there are no files/exams, hide the middle bar & empty box completely
             if (allExams.length === 0) {
                 if (controlBarSection) controlBarSection.classList.add('hidden');
                 if (examListContainer) examListContainer.innerHTML = '';
@@ -1027,11 +1070,11 @@
                 const matchesFolder = activeFolder === 'ALL' || ex.folder === activeFolder;
                 const matchesSearch = !searchQuery ||
                     ex.title.toLowerCase().includes(searchQuery) ||
-                    (ex.folder || '').toLowerCase().includes(searchQuery);
+                    (ex.folder || '').toLowerCase().includes(searchQuery) ||
+                    (ex.description || '').toLowerCase().includes(searchQuery);
                 return matchesFolder && matchesSearch;
             });
 
-            // Minimalist floating pill when search filter returns 0 (never a big blocking box)
             if (filteredExams.length === 0) {
                 container.innerHTML = `
                     <div class="flex justify-center pt-2">
@@ -1070,7 +1113,7 @@
                                         ${examsInFolder.length} đề
                                     </span>
                                 </div>
-                                <p class="text-[11px] text-slate-400">Mã phân loại: <span class="font-mono text-slate-300 font-semibold">${escapeHtml(meta.codePrefix || 'MĐ')}</span></p>
+                                <p class="text-[11px] text-slate-400">Mã phân loại: <span class="font-mono text-slate-300 font-semibold">${escapeHtml(meta.codePrefix || 'VL')}</span></p>
                             </div>
                         </div>
                     </div>
@@ -1086,6 +1129,10 @@
 
         function renderExamCardHtml(exam, meta) {
             const examCodeBadge = extractExamCodeBadge(exam, meta);
+            const metaInfoParts = [];
+            if (exam.duration) metaInfoParts.push(`<i class="fa-regular fa-clock text-cyan-400"></i> ${escapeHtml(exam.duration)}`);
+            if (exam.questionCount) metaInfoParts.push(`<i class="fa-solid fa-list-check text-cyan-400"></i> ${escapeHtml(exam.questionCount)}`);
+
             return `
             <article class="exam-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between gap-4 relative overflow-hidden group">
                 <div class="pointer-events-none absolute -right-3 -bottom-3 opacity-[0.06] group-hover:opacity-[0.14] group-hover:scale-110 transition-all duration-500 ${meta.color}">
@@ -1109,9 +1156,11 @@
                             <button onclick="copyExamUrl('${escapeAttr(exam.url)}')" class="btn-crystal w-8 h-8 rounded-xl flex items-center justify-center text-xs text-slate-300 hover:text-cyan-300" title="Sao chép link">
                                 <i class="fa-regular fa-copy"></i>
                             </button>
+                            ${!exam.fromJson ? `
                             <button onclick="deleteCustomExam('${escapeAttr(exam.id)}')" class="btn-crystal w-8 h-8 rounded-xl flex items-center justify-center text-xs text-slate-400 hover:text-rose-400 hover:border-rose-400/40" title="Xóa đề này">
                                 <i class="fa-regular fa-trash-can"></i>
                             </button>
+                            ` : ''}
                         </div>
                     </div>
 
@@ -1119,9 +1168,19 @@
                         <div class="folder-emblem w-10 h-10 rounded-xl border flex-shrink-0 flex items-center justify-center ${meta.iconBox} group-hover:scale-105 transition duration-300">
                             <i class="fa-solid ${meta.icon} text-base"></i>
                         </div>
-                        <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-cyan-200 transition leading-snug line-clamp-2">
-                            ${escapeHtml(exam.title)}
-                        </h3>
+                        <div class="space-y-1 min-w-0">
+                            <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-cyan-200 transition leading-snug line-clamp-2">
+                                ${escapeHtml(exam.title)}
+                            </h3>
+                            ${exam.description ? `
+                                <p class="text-xs text-slate-300/90 line-clamp-2 leading-relaxed">${escapeHtml(exam.description)}</p>
+                            ` : ''}
+                            ${metaInfoParts.length > 0 ? `
+                                <div class="flex items-center gap-3 text-[11px] text-slate-400 font-mono pt-0.5">
+                                    ${metaInfoParts.map(p => `<span class="flex items-center gap-1">${p}</span>`).join('')}
+                                </div>
+                            ` : ''}
+                        </div>
                     </div>
                 </div>
 
@@ -1418,13 +1477,7 @@
         }
 
         // ============================================================================
-        // 9. EXPANDED LIVING COSMIC ECOSYSTEM CANVAS:
-        //    - Deep Spiral Galaxies (Các thiên hà xoắn ốc)
-        //    - 3D Living Solar System (Hệ Mặt Trời & các hành tinh)
-        //    - Cosmic Bioluminescent Jellyfish (Sứa tinh vân phát quang)
-        //    - Celestial Space Whale & Stardust Manta Rays (Cá voi & Cá đuối vũ trụ)
-        //    - Futuristic Spaceships (Tàu không gian du hành)
-        //    - Floating Orbital Satellites (Vệ tinh lơ lửng)
+        // 9. EXPANDED LIVING COSMIC ECOSYSTEM CANVAS
         // ============================================================================
         function initCosmicCanvas() {
             const canvas = document.getElementById('starfield');
@@ -1447,7 +1500,7 @@
                 driftX: (Math.random() - 0.5) * 0.05
             }));
 
-            // --- B. DISTANT SPIRAL GALAXIES (CÁC THIÊN HÀ XOẮN ỐC) ---
+            // --- B. DISTANT SPIRAL GALAXIES ---
             const galaxies = [
                 {
                     xRatio: 0.16, yRatio: 0.22,
@@ -1487,7 +1540,6 @@
                     ctx.scale(1, g.tilt);
                     ctx.rotate(g.angle);
 
-                    // Ambient Galactic Halo
                     const halo = ctx.createRadialGradient(0, 0, 2, 0, 0, g.radius * 1.35);
                     halo.addColorStop(0, g.coreColor);
                     halo.addColorStop(0.35, g.armColor);
@@ -1497,7 +1549,6 @@
                     ctx.arc(0, 0, g.radius * 1.35, 0, Math.PI * 2);
                     ctx.fill();
 
-                    // Spiral Arms with glowing star clusters
                     for (let arm = 0; arm < g.arms; arm++) {
                         const armOffset = (arm * Math.PI * 2) / g.arms;
                         ctx.beginPath();
@@ -1526,7 +1577,6 @@
                         ctx.stroke();
                     }
 
-                    // Bright Galactic Core
                     const core = ctx.createRadialGradient(0, 0, 0, 0, 0, g.radius * 0.24);
                     core.addColorStop(0, '#ffffff');
                     core.addColorStop(0.5, g.coreColor);
@@ -1720,8 +1770,7 @@
                 ctx.restore();
             }
 
-            // --- D. BIOLUMINESCENT COSMIC CREATURES (SINH VẬT VŨ TRỤ PHÁT QUANG) ---
-            // 1. Cosmic Jellyfish (Sứa Tinh Vân)
+            // --- D. BIOLUMINESCENT COSMIC CREATURES ---
             const cosmicJellyfish = [
                 {
                     x: width * 0.18, y: height * 0.62,
@@ -1763,7 +1812,6 @@
                     ctx.translate(jf.x, jf.y);
                     ctx.rotate(moveAngle);
 
-                    // Outer Bioluminescent Aura
                     const aura = ctx.createRadialGradient(0, 0, 2, 0, 0, jf.size * 2.4);
                     aura.addColorStop(0, jf.glow);
                     aura.addColorStop(1, 'rgba(0,0,0,0)');
@@ -1772,7 +1820,6 @@
                     ctx.arc(0, 0, jf.size * 2.4, 0, Math.PI * 2);
                     ctx.fill();
 
-                    // Flowing Sine-Wave Tentacles
                     const tentacleCount = 6;
                     for (let t = 0; t < tentacleCount; t++) {
                         const offsetX = (t - (tentacleCount - 1) / 2) * (jf.size * 0.28);
@@ -1790,7 +1837,6 @@
                         ctx.stroke();
                     }
 
-                    // Translucent Pulsing Bell Dome
                     ctx.save();
                     ctx.scale(bellScaleX, bellScaleY);
                     const bellGrad = ctx.createRadialGradient(0, -jf.size * 0.3, 2, 0, 0, jf.size);
@@ -1806,7 +1852,6 @@
                     ctx.quadraticCurveTo(0, jf.size * 0.35, -jf.size, 0);
                     ctx.fill();
 
-                    // Glowing Rim & Inner Organelles
                     ctx.strokeStyle = '#ffffff';
                     ctx.lineWidth = 1.2;
                     ctx.globalAlpha = 0.7;
@@ -1817,7 +1862,6 @@
                 }
             }
 
-            // 2. Celestial Space Whale & Cosmic Manta Ray (Cá Voi Vũ Trụ & Cá Đuối Ánh Sao)
             const spaceWhale = {
                 x: width * 0.25,
                 y: height * 0.34,
@@ -1843,7 +1887,6 @@
                 ctx.translate(spaceWhale.x, spaceWhale.y);
                 ctx.rotate(heading);
 
-                // Soft Celestial Glow around the Whale
                 const whaleHalo = ctx.createRadialGradient(0, 0, 4, -15, 0, 65);
                 whaleHalo.addColorStop(0, 'rgba(56, 189, 248, 0.32)');
                 whaleHalo.addColorStop(0.5, 'rgba(139, 92, 246, 0.15)');
@@ -1853,21 +1896,18 @@
                 ctx.arc(-10, 0, 65, 0, Math.PI * 2);
                 ctx.fill();
 
-                // Undulating Spine Points from Head (front +25) to Tail Fluke (-55)
                 const spine = [];
                 const segments = 12;
                 for (let i = 0; i <= segments; i++) {
                     const frac = i / segments;
                     const sx = 24 - frac * 78;
                     const sy = Math.sin(spaceWhale.phase - frac * 3.2) * (frac * 7.5);
-                    // Body thickness profile (head rounded, tapering to tail)
                     const thickness = i < 3
                         ? 9.5 * Math.sin((i + 1) * 0.45)
                         : Math.max(1.6, 11 * (1 - frac));
                     spine.push({ x: sx, y: sy, r: thickness });
                 }
 
-                // Draw Ethereal Translucent Whale Body
                 const bodyGrad = ctx.createLinearGradient(25, 0, -55, 0);
                 bodyGrad.addColorStop(0, 'rgba(224, 242, 254, 0.92)');
                 bodyGrad.addColorStop(0.35, 'rgba(56, 189, 248, 0.75)');
@@ -1880,7 +1920,6 @@
                 for (let i = 0; i <= segments; i++) {
                     ctx.lineTo(spine[i].x, spine[i].y - spine[i].r);
                 }
-                // Tail Fluke (Vây đuôi cá voi)
                 const tail = spine[segments];
                 const tailSwing = Math.cos(spaceWhale.phase - 3.2) * 5;
                 ctx.lineTo(tail.x - 12, tail.y - 11 + tailSwing);
@@ -1892,7 +1931,6 @@
                 ctx.closePath();
                 ctx.fill();
 
-                // Graceful Pectoral Fins (Vây ngực phát sáng)
                 const finBase = spine[3];
                 const finWave = Math.sin(spaceWhale.phase * 1.1) * 4;
                 ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
@@ -1902,7 +1940,6 @@
                 ctx.quadraticCurveTo(finBase.x - 12, finBase.y + 9, finBase.x - 6, finBase.y + 5);
                 ctx.fill();
 
-                // Bioluminescent Constellation Dots along the Whale's back
                 ctx.fillStyle = '#ffffff';
                 for (let i = 1; i < segments - 1; i += 2) {
                     ctx.beginPath();
@@ -1913,7 +1950,6 @@
                 ctx.restore();
             }
 
-            // 3. Stardust Manta Ray (Cá Đuối Ánh Sao)
             const mantaRay = {
                 x: width * 0.78,
                 y: height * 0.78,
@@ -1944,19 +1980,19 @@
 
                 ctx.fillStyle = mantaGrad;
                 ctx.beginPath();
-                ctx.moveTo(16, 0); // Head
-                ctx.quadraticCurveTo(4, -18 - wingFlap * 0.6, -8, -22 - wingFlap); // Right Wingtip
-                ctx.quadraticCurveTo(-12, -6, -18, -1.5); // Tail base
-                ctx.lineTo(-42, Math.sin(mantaRay.phase * 1.5) * 4); // Glowing Whip Tail
+                ctx.moveTo(16, 0);
+                ctx.quadraticCurveTo(4, -18 - wingFlap * 0.6, -8, -22 - wingFlap);
+                ctx.quadraticCurveTo(-12, -6, -18, -1.5);
+                ctx.lineTo(-42, Math.sin(mantaRay.phase * 1.5) * 4);
                 ctx.lineTo(-18, 1.5);
-                ctx.quadraticCurveTo(-12, 6, -8, 22 + wingFlap); // Left Wingtip
+                ctx.quadraticCurveTo(-12, 6, -8, 22 + wingFlap);
                 ctx.quadraticCurveTo(4, 18 + wingFlap * 0.6, 16, 0);
                 ctx.fill();
 
                 ctx.restore();
             }
 
-            // --- E. SCI-FI SPACESHIPS (TÀU KHÔNG GIAN DU HÀNH) ---
+            // --- E. SCI-FI SPACESHIPS ---
             const spaceships = [
                 {
                     x: width * 0.12, y: height * 0.42,
@@ -1979,7 +2015,6 @@
                     ship.x += ship.vx;
                     ship.y += ship.vy + Math.sin(ship.x * 0.006) * 0.12;
 
-                    // Wrap seamlessly around screen edges
                     if (ship.x > width + 100) {
                         ship.x = -100;
                         ship.y = height * (0.15 + Math.random() * 0.65);
@@ -1993,7 +2028,6 @@
                     ship.trail.unshift({ x: ship.x, y: ship.y });
                     if (ship.trail.length > 26) ship.trail.pop();
 
-                    // Luminous Ion Engine Trail
                     if (ship.trail.length > 2) {
                         ctx.save();
                         ctx.beginPath();
@@ -2017,7 +2051,6 @@
                     ctx.rotate(heading);
                     ctx.scale(ship.scale, ship.scale);
 
-                    // Ion Thruster Flame Glow
                     const thrusterGrad = ctx.createRadialGradient(-14, 0, 1, -18, 0, 14);
                     thrusterGrad.addColorStop(0, '#ffffff');
                     thrusterGrad.addColorStop(0.4, ship.engineColor);
@@ -2027,23 +2060,21 @@
                     ctx.arc(-15, 0, 13, 0, Math.PI * 2);
                     ctx.fill();
 
-                    // Sleek Swept-Wing Starcruiser Hull
                     ctx.fillStyle = '#e2e8f0';
                     ctx.beginPath();
-                    ctx.moveTo(18, 0);        // Nose cone
+                    ctx.moveTo(18, 0);
                     ctx.lineTo(2, -5);
-                    ctx.lineTo(-10, -13);     // Left swept wingtip
+                    ctx.lineTo(-10, -13);
                     ctx.lineTo(-14, -10);
                     ctx.lineTo(-9, -3);
-                    ctx.lineTo(-13, 0);       // Rear engine nozzle
+                    ctx.lineTo(-13, 0);
                     ctx.lineTo(-9, 3);
                     ctx.lineTo(-14, 10);
-                    ctx.lineTo(-10, 13);      // Right swept wingtip
+                    ctx.lineTo(-10, 13);
                     ctx.lineTo(2, 5);
                     ctx.closePath();
                     ctx.fill();
 
-                    // Glowing Cyan Cockpit Canopy
                     ctx.fillStyle = '#38bdf8';
                     ctx.beginPath();
                     ctx.ellipse(5, 0, 5.5, 2.2, 0, 0, Math.PI * 2);
@@ -2053,7 +2084,7 @@
                 }
             }
 
-            // --- F. FLOATING ORBITAL SATELLITES (VỆ TINH LƠ LỬNG) ---
+            // --- F. FLOATING ORBITAL SATELLITES ---
             const satellites = [
                 {
                     xRatio: 0.24, yRatio: 0.18,
@@ -2082,19 +2113,15 @@
                     ctx.rotate(sat.angle);
                     ctx.scale(sat.scale, sat.scale);
 
-                    // Left & Right Solar Panel Wings
                     ctx.fillStyle = 'rgba(30, 64, 175, 0.85)';
                     ctx.strokeStyle = 'rgba(125, 211, 252, 0.65)';
                     ctx.lineWidth = 1;
 
-                    // Left Solar Wing
                     ctx.fillRect(-34, -5, 22, 10);
                     ctx.strokeRect(-34, -5, 22, 10);
-                    // Right Solar Wing
                     ctx.fillRect(12, -5, 22, 10);
                     ctx.strokeRect(12, -5, 22, 10);
 
-                    // Solar Grid Lines
                     ctx.beginPath();
                     ctx.moveTo(-23, -5); ctx.lineTo(-23, 5);
                     ctx.moveTo(23, -5); ctx.lineTo(23, 5);
@@ -2102,7 +2129,6 @@
                     ctx.moveTo(12, 0); ctx.lineTo(34, 0);
                     ctx.stroke();
 
-                    // Connecting Struts
                     ctx.strokeStyle = '#94a3b8';
                     ctx.lineWidth = 1.6;
                     ctx.beginPath();
@@ -2110,7 +2136,6 @@
                     ctx.moveTo(6, 0); ctx.lineTo(12, 0);
                     ctx.stroke();
 
-                    // Central Metallic Bus Body
                     const bodyGrad = ctx.createLinearGradient(-6, -7, 6, 7);
                     bodyGrad.addColorStop(0, '#f8fafc');
                     bodyGrad.addColorStop(0.5, '#fbbf24');
@@ -2118,7 +2143,6 @@
                     ctx.fillStyle = bodyGrad;
                     ctx.fillRect(-6, -7, 12, 14);
 
-                    // Parabolic Dish & Communication Antenna
                     ctx.strokeStyle = '#e2e8f0';
                     ctx.lineWidth = 1.3;
                     ctx.beginPath();
@@ -2129,7 +2153,6 @@
                     ctx.lineTo(0, -16);
                     ctx.stroke();
 
-                    // Blinking Telemetry Beacon Light
                     const blinkAlpha = (Math.sin(sat.bobPhase * 3.2) + 1) * 0.5;
                     ctx.fillStyle = sat.beaconColor;
                     ctx.globalAlpha = 0.3 + blinkAlpha * 0.7;
@@ -2171,7 +2194,6 @@
             function animate() {
                 ctx.clearRect(0, 0, width, height);
 
-                // 1. Background Twinkling Stars
                 for (const s of stars) {
                     s.alpha += s.twinkleSpeed;
                     if (s.alpha > 0.95 || s.alpha < 0.15) s.twinkleSpeed *= -1;
@@ -2190,24 +2212,14 @@
                     ctx.restore();
                 }
 
-                // 2. Distant Spiral Galaxies
                 drawSpiralGalaxies();
-
-                // 3. Celestial Space Whale & Stardust Manta Ray
                 drawCelestialWhale();
                 drawCosmicMantaRay();
-
-                // 4. Living Solar System
                 drawSolarSystem();
-
-                // 5. Bioluminescent Cosmic Jellyfish
                 drawCosmicJellyfish();
-
-                // 6. Floating Satellites & Cruising Spaceships
                 drawSatellites();
                 drawSpaceships();
 
-                // 7. Shooting Comets
                 if (Math.random() < 0.015) spawnShootingStar();
                 for (let i = shootingStars.length - 1; i >= 0; i--) {
                     const m = shootingStars[i];
@@ -2247,7 +2259,7 @@
 
         window.addEventListener('DOMContentLoaded', () => {
             initCosmicCanvas();
-            renderAll();
+            loadJsonExams();
             initFirebaseSync();
         });
     </script>
