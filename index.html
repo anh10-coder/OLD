@@ -1,0 +1,2255 @@
+<!DOCTYPE html>
+<html lang="vi" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Luyện Đề</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        display: ['Space Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        space: {
+                            950: '#02050e',
+                            900: '#060b19',
+                            800: '#0d152d',
+                            700: '#182449',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        :root {
+            color-scheme: dark;
+        }
+        body {
+            background-color: #02050e;
+            color: #f8fafc;
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Animated Deep Space Nebula Layers */
+        .cosmic-nebula-wrapper {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            pointer-events: none;
+            background: radial-gradient(ellipse at 50% 60%, #081029 0%, #030613 65%, #01030a 100%);
+        }
+
+        .nebula-blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(110px);
+            opacity: 0.48;
+            mix-blend-mode: screen;
+            will-change: transform;
+        }
+
+        .nebula-1 {
+            width: 58vw;
+            height: 58vw;
+            min-width: 320px;
+            min-height: 320px;
+            top: -16%;
+            left: -12%;
+            background: radial-gradient(circle, rgba(56, 189, 248, 0.45) 0%, rgba(29, 78, 216, 0.16) 60%, transparent 100%);
+            animation: floatNebula1 28s ease-in-out infinite alternate;
+        }
+
+        .nebula-2 {
+            width: 54vw;
+            height: 54vw;
+            min-width: 300px;
+            min-height: 300px;
+            bottom: -16%;
+            right: -10%;
+            background: radial-gradient(circle, rgba(168, 85, 247, 0.45) 0%, rgba(99, 102, 241, 0.16) 60%, transparent 100%);
+            animation: floatNebula2 32s ease-in-out infinite alternate;
+        }
+
+        .nebula-3 {
+            width: 42vw;
+            height: 42vw;
+            min-width: 240px;
+            min-height: 240px;
+            top: 28%;
+            left: 32%;
+            background: radial-gradient(circle, rgba(20, 184, 166, 0.25) 0%, rgba(236, 72, 153, 0.14) 60%, transparent 100%);
+            animation: floatNebula3 24s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatNebula1 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(7vw, 5vh) scale(1.15) rotate(12deg); }
+        }
+        @keyframes floatNebula2 {
+            0% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            100% { transform: translate(-6vw, -7vh) scale(1.14) rotate(-12deg); }
+        }
+        @keyframes floatNebula3 {
+            0% { transform: translate(-4vw, 3vh) scale(0.95); }
+            100% { transform: translate(5vw, -4vh) scale(1.1); }
+        }
+
+        /* Rotating Cosmic Ring Aura */
+        .galaxy-ring {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 120vmax;
+            height: 120vmax;
+            transform: translate(-50%, -50%);
+            background: conic-gradient(
+                from 0deg,
+                transparent 0deg,
+                rgba(56, 189, 248, 0.05) 60deg,
+                transparent 120deg,
+                rgba(139, 92, 246, 0.07) 240deg,
+                transparent 360deg
+            );
+            border-radius: 50%;
+            animation: spinGalaxy 110s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes spinGalaxy {
+            from { transform: translate(-50%, -50%) rotate(0deg); }
+            to { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+
+        /* ==========================================================================
+           ULTRA-REFINED LIQUID GLASS SURFACES & MODERN TACTILE BUTTON SYSTEM
+           (Zero plastic feel, silky transitions, delicate specular highlights)
+           ========================================================================== */
+        .glass-panel {
+            background: linear-gradient(160deg, rgba(15, 23, 42, 0.62) 0%, rgba(7, 12, 28, 0.72) 100%);
+            backdrop-filter: blur(22px) saturate(160%);
+            -webkit-backdrop-filter: blur(22px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.16),
+                0 16px 40px -10px rgba(0, 0, 0, 0.6);
+        }
+
+        .exam-card {
+            background: linear-gradient(155deg, rgba(16, 25, 50, 0.62) 0%, rgba(8, 14, 32, 0.75) 100%);
+            backdrop-filter: blur(20px) saturate(150%);
+            -webkit-backdrop-filter: blur(20px) saturate(150%);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.14),
+                0 10px 30px -10px rgba(2, 6, 23, 0.65);
+            transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .exam-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(125, 211, 252, 0.38);
+            background: linear-gradient(155deg, rgba(20, 32, 64, 0.75) 0%, rgba(10, 18, 40, 0.85) 100%);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.25),
+                0 20px 42px -12px rgba(56, 189, 248, 0.22),
+                0 0 25px -5px rgba(99, 102, 241, 0.18);
+        }
+
+        /* Primary Aurora Crystal Button */
+        .btn-aurora {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.24) 0%, rgba(99, 102, 241, 0.28) 50%, rgba(168, 85, 247, 0.24) 100%);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            border: 1px solid rgba(125, 211, 252, 0.38);
+            color: #f0f9ff;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
+                inset 0 -1px 0 0 rgba(56, 189, 248, 0.15),
+                0 8px 24px -6px rgba(14, 165, 233, 0.3),
+                0 0 18px -4px rgba(139, 92, 246, 0.22);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-aurora::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 65%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+            transform: skewX(-24deg);
+            transition: left 0.65s cubic-bezier(0.22, 1, 0.36, 1);
+            pointer-events: none;
+        }
+
+        .btn-aurora:hover {
+            transform: translateY(-1.5px);
+            border-color: rgba(186, 230, 253, 0.68);
+            background: linear-gradient(135deg, rgba(14, 165, 233, 0.36) 0%, rgba(99, 102, 241, 0.42) 50%, rgba(168, 85, 247, 0.35) 100%);
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.48),
+                0 12px 30px -6px rgba(56, 189, 248, 0.42),
+                0 0 24px -2px rgba(139, 92, 246, 0.32);
+        }
+
+        .btn-aurora:hover::before {
+            left: 145%;
+        }
+
+        .btn-aurora:active {
+            transform: scale(0.96) translateY(0);
+            transition-duration: 0.1s;
+        }
+
+        /* Secondary Frosted Glass Button */
+        .btn-crystal {
+            position: relative;
+            overflow: hidden;
+            background: rgba(15, 23, 42, 0.55);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #cbd5e1;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.12),
+                0 4px 14px -4px rgba(0, 0, 0, 0.4);
+            transition: all 0.32s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .btn-crystal:hover {
+            transform: translateY(-1px);
+            background: rgba(30, 41, 69, 0.72);
+            border-color: rgba(148, 163, 184, 0.32);
+            color: #ffffff;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.24),
+                0 8px 20px -5px rgba(14, 165, 233, 0.18);
+        }
+
+        .btn-crystal:active {
+            transform: scale(0.95);
+            transition-duration: 0.1s;
+        }
+
+        /* Active Folder Pill (Silky Luminous Glass) */
+        .pill-active {
+            background: linear-gradient(135deg, rgba(56, 189, 248, 0.25) 0%, rgba(99, 102, 241, 0.3) 100%);
+            border: 1px solid rgba(125, 211, 252, 0.52);
+            color: #ffffff;
+            box-shadow:
+                inset 0 1px 0 0 rgba(255, 255, 255, 0.32),
+                0 6px 20px -4px rgba(56, 189, 248, 0.28);
+        }
+
+        .folder-emblem {
+            box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.24), 0 4px 14px -2px rgba(0, 0, 0, 0.45);
+        }
+
+        /* Mobile Scrollbar Hide */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col selection:bg-cyan-400 selection:text-slate-950">
+
+    <!-- Animated Living Cosmic Background:
+         Galaxies + Solar System + Cosmic Jellyfish + Space Whales + Manta Rays + Spaceships + Satellites -->
+    <div class="cosmic-nebula-wrapper">
+        <div class="galaxy-ring"></div>
+        <div class="nebula-blob nebula-1"></div>
+        <div class="nebula-blob nebula-2"></div>
+        <div class="nebula-blob nebula-3"></div>
+        <canvas id="starfield" class="absolute inset-0 w-full h-full"></canvas>
+    </div>
+
+    <!-- Ultra-Sleek Translucent Sticky Header -->
+    <header class="sticky top-0 z-30 border-b border-white/[0.07] bg-space-950/45 backdrop-blur-2xl">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+            <!-- Brand Logo -->
+            <div class="flex items-center gap-3 min-w-0">
+                <div class="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl bg-gradient-to-br from-cyan-400/40 via-indigo-500/40 to-purple-500/40 p-[1px] shadow-lg shadow-cyan-500/15 flex-shrink-0 backdrop-blur-xl">
+                    <div class="w-full h-full bg-slate-950/75 rounded-[15px] flex items-center justify-center border border-white/15">
+                        <i class="fa-solid fa-shuttle-space text-cyan-300 text-base sm:text-lg -rotate-45 drop-shadow-[0_0_8px_rgba(56,189,248,0.6)]"></i>
+                    </div>
+                </div>
+                <div class="truncate">
+                    <div class="flex items-center gap-2.5">
+                        <h1 class="font-display font-bold text-base sm:text-xl text-white tracking-tight truncate">
+                            Luyện Đề
+                        </h1>
+                        <span id="adminUnlockedBadge" class="hidden items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-400/30 shadow-sm">
+                            <i class="fa-solid fa-shield-check"></i> Quản trị
+                        </span>
+                    </div>
+                    <p class="text-[11px] sm:text-xs text-slate-400/90 truncate">Không gian luyện đề trực tiếp & thư giãn</p>
+                </div>
+            </div>
+
+            <!-- Refined Tactile Action Buttons -->
+            <div class="flex items-center gap-2.5 flex-shrink-0">
+                <!-- ASMR Stress-Relief Sound Toggle Button -->
+                <button id="soundToggleBtn" onclick="toggleAsmrSound()" class="btn-crystal w-10 h-10 sm:w-auto sm:px-3.5 sm:py-2.5 rounded-2xl text-xs font-medium flex items-center justify-center gap-2" title="Bật/Tắt âm thanh thư giãn ASMR khi bấm nút">
+                    <i id="soundToggleIcon" class="fa-solid fa-volume-high text-cyan-300 text-xs sm:text-sm"></i>
+                    <span id="soundToggleText" class="hidden sm:inline text-slate-300">Âm thanh êm</span>
+                </button>
+
+                <!-- Add Exam Aurora Crystal Button -->
+                <button onclick="openAddExamModal()" class="btn-aurora px-4 py-2.5 sm:px-5 sm:py-2.5 rounded-2xl text-xs sm:text-sm font-semibold flex items-center gap-2.5">
+                    <span class="w-5 h-5 rounded-lg bg-cyan-400/20 border border-cyan-300/40 flex items-center justify-center text-cyan-200 shadow-inner">
+                        <i class="fa-solid fa-plus text-[11px]"></i>
+                    </span>
+                    <span class="tracking-wide">Thêm Đề</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content (Completely transparent & hidden when empty so 100% of the cosmic background shines through) -->
+    <main class="relative z-10 flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-5 sm:py-8 space-y-5 pointer-events-none">
+
+        <!-- Unified Control Bar: Automatically hidden when there are 0 exams -->
+        <section id="controlBarSection" class="hidden glass-panel rounded-2xl p-3.5 sm:p-4 pointer-events-auto">
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
+                <!-- Folder Pills Bar -->
+                <div id="folderListContainer" class="flex items-center gap-2 overflow-x-auto no-scrollbar pb-0.5">
+                    <!-- Rendered dynamically -->
+                </div>
+
+                <!-- Instant Search Input -->
+                <div class="relative w-full sm:w-64 flex-shrink-0">
+                    <i class="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
+                    <input id="examSearchInput" oninput="renderExams()" type="text" placeholder="Tìm tên đề, môn học..." class="w-full pl-9 pr-8 py-2 rounded-xl bg-slate-950/60 border border-white/10 text-xs sm:text-sm text-white placeholder-slate-400 focus:outline-none focus:border-cyan-400/60 transition backdrop-blur-md">
+                    <button id="clearSearchBtn" onclick="clearSearch()" class="hidden absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs p-1">
+                        <i class="fa-solid fa-circle-xmark"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Exam Directory Content (Empty when 0 exams so background is 100% visible) -->
+        <section id="examListContainer" class="space-y-6 pointer-events-auto">
+            <!-- Rendered dynamically -->
+        </section>
+
+    </main>
+
+    <!-- FULL-SCREEN IN-APP EXAM WORKSPACE MODAL -->
+    <div id="examWorkspaceModal" class="fixed inset-0 z-50 hidden flex-col bg-space-950">
+        <!-- Compact Top Bar -->
+        <div class="h-14 px-3 sm:px-5 bg-space-900/90 backdrop-blur-xl border-b border-white/10 flex items-center justify-between gap-2 flex-shrink-0">
+            <div class="flex items-center gap-2.5 min-w-0">
+                <button onclick="closeExamWorkspace()" class="btn-crystal px-3.5 py-2 rounded-xl text-xs font-medium flex items-center gap-2 flex-shrink-0">
+                    <i class="fa-solid fa-arrow-left text-cyan-300"></i>
+                    <span>Thoát</span>
+                </button>
+                <div class="truncate flex items-center gap-2">
+                    <span id="workspaceFolderTag" class="hidden sm:inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg text-[11px] font-medium bg-cyan-500/15 text-cyan-300 border border-cyan-500/30">
+                        <i class="fa-solid fa-folder text-[10px]"></i>
+                        <span>Môn học</span>
+                    </span>
+                    <h3 id="workspaceExamTitle" class="font-display font-bold text-xs sm:text-sm text-white truncate">
+                        Đề Thi
+                    </h3>
+                </div>
+            </div>
+
+            <!-- Timer & External Link -->
+            <div class="flex items-center gap-2.5 flex-shrink-0">
+                <div class="px-3 py-1.5 rounded-xl bg-slate-950/80 border border-white/10 text-xs flex items-center gap-1.5 text-cyan-300">
+                    <i class="fa-regular fa-clock"></i>
+                    <strong id="workspaceTimerDisplay" class="font-mono text-white">00:00</strong>
+                </div>
+                <a id="workspaceExternalLink" href="#" target="_blank" rel="noopener noreferrer" onclick="playSoftTap()" class="btn-crystal px-3.5 py-2 rounded-xl text-xs font-medium flex items-center gap-1.5" title="Mở đề trong tab mới">
+                    <i class="fa-solid fa-up-right-from-square text-cyan-300"></i>
+                    <span class="hidden sm:inline">Mở Tab Mới</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Exam Iframe Area -->
+        <div class="relative flex-1 w-full bg-slate-950 overflow-hidden">
+            <div id="iframeLoader" class="absolute inset-0 flex flex-col items-center justify-center bg-space-950 z-10 pointer-events-none transition-opacity duration-300">
+                <div class="w-12 h-12 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-300 mb-3 animate-pulse">
+                    <i class="fa-solid fa-shuttle-space text-xl -rotate-45"></i>
+                </div>
+                <p class="text-sm font-medium text-slate-200">Đang kết nối không gian làm bài...</p>
+            </div>
+            <iframe id="examIframe" src="about:blank" class="w-full h-full border-0" allow="fullscreen; clipboard-read; clipboard-write"></iframe>
+        </div>
+    </div>
+
+    <!-- STREAMLINED ADD EXAM MODAL (Secure Password, No Hints) -->
+    <div id="addExamModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+        <div class="glass-panel w-full max-w-md rounded-3xl border border-white/15 shadow-2xl overflow-hidden">
+            <div class="px-5 py-4 bg-slate-950/50 border-b border-white/10 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-2xl bg-cyan-500/15 border border-cyan-400/30 flex items-center justify-center text-cyan-300 shadow-inner">
+                        <i class="fa-solid fa-sparkles text-sm"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display font-bold text-base text-white">Thêm Đề Thi Mới</h3>
+                        <p class="text-[11px] text-slate-400">Dán link và đặt tên — tự động phân loại thư mục</p>
+                    </div>
+                </div>
+                <button type="button" onclick="closeAddExamModal()" class="btn-crystal w-8 h-8 rounded-xl flex items-center justify-center text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-sm"></i>
+                </button>
+            </div>
+
+            <form id="addExamForm" onsubmit="handleAddExamSubmit(event)" class="p-5 space-y-4">
+                <!-- 1. Exam URL -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-200 mb-1.5">
+                        1. Link đề thi (URL) <span class="text-rose-400">*</span>
+                    </label>
+                    <div class="relative flex items-center">
+                        <i class="fa-solid fa-link absolute left-3.5 text-slate-400 text-xs"></i>
+                        <input id="newExamUrl" type="url" required oninput="handleAutoDetectFolder()" placeholder="https://..." class="w-full pl-9 pr-3.5 py-2.5 rounded-xl bg-slate-950/75 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/70 transition">
+                    </div>
+                </div>
+
+                <!-- 2. Exam Title -->
+                <div>
+                    <label class="block text-xs font-medium text-slate-200 mb-1.5">
+                        2. Tên đề thi <span class="text-rose-400">*</span>
+                    </label>
+                    <input id="newExamTitle" type="text" required oninput="handleAutoDetectFolder()" placeholder="VD: Đề Vật Lý 12 - Đề số 1" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-950/75 border border-white/10 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400/70 transition">
+                </div>
+
+                <!-- Instant Folder Selection -->
+                <div class="p-3.5 rounded-2xl bg-slate-950/60 border border-white/[0.08] space-y-2.5">
+                    <div class="flex items-center justify-between gap-2">
+                        <span class="text-xs font-medium text-slate-300 flex items-center gap-2">
+                            <span id="modalFolderIconPreview" class="w-6 h-6 rounded-lg bg-cyan-500/20 border border-cyan-500/40 flex items-center justify-center text-cyan-300">
+                                <i class="fa-solid fa-atom text-xs"></i>
+                            </span>
+                            <span>Thư mục / Môn:</span>
+                        </span>
+                        <input id="newExamFolder" type="text" oninput="markManualFolderEdit()" placeholder="Vật Lý" class="w-36 px-2.5 py-1.5 rounded-xl bg-slate-900/90 border border-cyan-400/35 text-xs font-semibold text-cyan-200 text-right focus:outline-none focus:border-cyan-400">
+                    </div>
+                    <!-- 1-Tap Subject Chips -->
+                    <div class="flex flex-wrap gap-1.5 pt-0.5">
+                        <button type="button" onclick="pickQuickFolder('Vật Lý')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-atom text-cyan-400"></i> Vật Lý
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Toán Học')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-square-root-variable text-indigo-400"></i> Toán Học
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Hóa Học')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-flask-vial text-emerald-400"></i> Hóa Học
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Sinh Học')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-dna text-teal-400"></i> Sinh Học
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Tiếng Anh')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-earth-americas text-amber-400"></i> Tiếng Anh
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Tin Học')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-microchip text-purple-400"></i> Tin Học
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('Ngữ Văn')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-feather-pointed text-rose-400"></i> Ngữ Văn
+                        </button>
+                        <button type="button" onclick="pickQuickFolder('ĐGNL - Tư Duy')" class="btn-crystal px-2.5 py-1.5 rounded-xl text-xs font-medium flex items-center gap-1.5">
+                            <i class="fa-solid fa-brain text-fuchsia-400"></i> ĐGNL
+                        </button>
+                    </div>
+                </div>
+
+                <!-- 3. Secure Admin Password (NO HINTS EVER SHOWN) -->
+                <div id="passwordFieldWrapper">
+                    <label class="block text-xs font-medium text-amber-200/90 mb-1.5">
+                        <i class="fa-solid fa-shield-halved mr-1 text-amber-300"></i>Mật khẩu quản trị <span class="text-rose-400">*</span>
+                    </label>
+                    <div class="relative flex items-center">
+                        <input id="newExamPassword" type="password" autocomplete="off" placeholder="Nhập mật khẩu bảo mật..." oninput="document.getElementById('examPasswordError').classList.add('hidden')" class="w-full pl-3.5 pr-10 py-2.5 rounded-xl bg-slate-950/80 border border-amber-400/30 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition">
+                        <button type="button" onclick="toggleExamPasswordVisibility()" class="absolute right-3 text-slate-400 hover:text-slate-200 text-xs p-1.5">
+                            <i id="examPasswordEyeIcon" class="fa-regular fa-eye text-sm"></i>
+                        </button>
+                    </div>
+                    <p id="examPasswordError" class="hidden text-[11px] text-rose-400 mt-1.5 font-medium">
+                        <i class="fa-solid fa-circle-exclamation mr-1"></i>Mật khẩu quản trị không chính xác. Vui lòng kiểm tra lại!
+                    </p>
+                </div>
+
+                <div class="pt-2 flex items-center justify-end gap-2.5">
+                    <button type="button" onclick="closeAddExamModal()" class="btn-crystal px-4 py-2.5 rounded-xl text-xs font-medium">
+                        Hủy
+                    </button>
+                    <button type="submit" class="btn-aurora flex-1 sm:flex-initial px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-check text-cyan-300"></i>
+                        <span>Lưu Đề</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFICATION CONTAINER -->
+    <div id="toastContainer" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 pointer-events-none"></div>
+
+    <!-- Application Logic, ASMR Sound Engine, Security & Living Universe -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInAnonymously, signInWithCustomToken, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, doc, setDoc, deleteDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // ============================================================================
+        // 1. WEB AUDIO API ZEN & ASMR STRESS-RELIEF SOUND ENGINE
+        //    (Warm water-drop, crystal kalimba, velvet bamboo tap, singing bowl)
+        // ============================================================================
+        let audioCtx = null;
+        let soundEnabled = true;
+
+        function getAudioContext() {
+            if (!soundEnabled) return null;
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                if (AudioContextClass) {
+                    audioCtx = new AudioContextClass();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume().catch(() => {});
+            }
+            return audioCtx;
+        }
+
+        // Primary Button Sound: Soothing Warm Water-Drop / Kalimba Harmonic Tone
+        window.playCalmingDrop = function() {
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+
+            // Warm Low-Pass Filter so there is never any harsh high frequency
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(1150, now);
+
+            const masterGain = ctx.createGain();
+            masterGain.gain.setValueAtTime(0.001, now);
+            masterGain.gain.linearRampToValueAtTime(0.11, now + 0.014);
+            masterGain.gain.exponentialRampToValueAtTime(0.0008, now + 0.34);
+
+            // Fundamental warm sine drop (gentle upward-then-soft-settle water drop contour)
+            const osc1 = ctx.createOscillator();
+            osc1.type = 'sine';
+            osc1.frequency.setValueAtTime(360, now);
+            osc1.frequency.exponentialRampToValueAtTime(528, now + 0.065);
+            osc1.frequency.exponentialRampToValueAtTime(440, now + 0.32);
+
+            // Soft harmonic fifth overtone (triangle wave attenuated)
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = 'triangle';
+            osc2.frequency.setValueAtTime(540, now);
+            osc2.frequency.exponentialRampToValueAtTime(792, now + 0.065);
+            gain2.gain.setValueAtTime(0.22, now);
+            gain2.gain.exponentialRampToValueAtTime(0.01, now + 0.22);
+
+            osc1.connect(masterGain);
+            osc2.connect(gain2);
+            gain2.connect(masterGain);
+            masterGain.connect(filter);
+            filter.connect(ctx.destination);
+
+            osc1.start(now);
+            osc2.start(now);
+            osc1.stop(now + 0.35);
+            osc2.stop(now + 0.35);
+        };
+
+        // Secondary Button / Pill Sound: Velvet Bamboo / Soft Pebble Tap
+        window.playSoftTap = function() {
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+
+            const filter = ctx.createBiquadFilter();
+            filter.type = 'lowpass';
+            filter.frequency.setValueAtTime(820, now);
+
+            const gain = ctx.createGain();
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.linearRampToValueAtTime(0.085, now + 0.008);
+            gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.14);
+
+            const osc = ctx.createOscillator();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(290, now);
+            osc.frequency.exponentialRampToValueAtTime(392, now + 0.045);
+
+            osc.connect(gain);
+            gain.connect(filter);
+            filter.connect(ctx.destination);
+
+            osc.start(now);
+            osc.stop(now + 0.15);
+        };
+
+        // Success / Save Sound: Zen Singing Bowl Soft Harmonic Bloom
+        function playZenSuccessChord() {
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            // Healing 528Hz & harmonic intervals
+            const notes = [440, 554.37, 659.25, 880];
+            notes.forEach((freq, idx) => {
+                const start = now + idx * 0.055;
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(freq, start);
+
+                gain.gain.setValueAtTime(0.001, start);
+                gain.gain.linearRampToValueAtTime(0.055, start + 0.025);
+                gain.gain.exponentialRampToValueAtTime(0.0005, start + 0.65);
+
+                osc.connect(gain);
+                gain.connect(ctx.destination);
+                osc.start(start);
+                osc.stop(start + 0.68);
+            });
+        }
+
+        // Gentle Muted Tone for Close / Warning (Never harsh)
+        function playGentleLowTone() {
+            const ctx = getAudioContext();
+            if (!ctx) return;
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(310, now);
+            osc.frequency.exponentialRampToValueAtTime(220, now + 0.22);
+
+            gain.gain.setValueAtTime(0.001, now);
+            gain.gain.linearRampToValueAtTime(0.07, now + 0.015);
+            gain.gain.exponentialRampToValueAtTime(0.0008, now + 0.24);
+
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.25);
+        }
+
+        window.toggleAsmrSound = function() {
+            soundEnabled = !soundEnabled;
+            const icon = document.getElementById('soundToggleIcon');
+            const text = document.getElementById('soundToggleText');
+            if (soundEnabled) {
+                if (icon) icon.className = 'fa-solid fa-volume-high text-cyan-300 text-xs sm:text-sm';
+                if (text) text.textContent = 'Âm thanh êm';
+                window.playCalmingDrop();
+                showToast('🎶 Đã bật âm thanh thư giãn ASMR', 'info');
+            } else {
+                if (icon) icon.className = 'fa-solid fa-volume-xmark text-slate-400 text-xs sm:text-sm';
+                if (text) text.textContent = 'Đã tắt tiếng';
+                showToast('🔇 Đã tắt âm thanh khi bấm nút', 'info');
+            }
+        };
+
+        // ============================================================================
+        // 2. SECURE PASSWORD VERIFICATION (ZERO PLAIN-TEXT, ZERO HINTS)
+        // ============================================================================
+        // Obfuscated byte signature of the admin password so plain text is never exposed
+        const _SEC_SALT = 0x5A;
+        const _SEC_BYTES = [107, 104, 105, 110, 111, 108, 109, 98, 99, 124, 112, 114, 123, 26, 121];
+        let isAdminUnlocked = false;
+
+        function verifyAdminSecret(candidate) {
+            if (typeof candidate !== 'string' || candidate.length !== _SEC_BYTES.length) {
+                return false;
+            }
+            let diff = 0;
+            for (let i = 0; i < _SEC_BYTES.length; i++) {
+                diff |= (candidate.charCodeAt(i) ^ _SEC_SALT) ^ _SEC_BYTES[i];
+            }
+            return diff === 0;
+        }
+
+        // ============================================================================
+        // 3. SUBJECT FOLDER CLASSIFICATION RULES
+        // ============================================================================
+        const SUBJECT_FOLDER_RULES = [
+            {
+                folder: 'Vật Lý',
+                icon: 'fa-atom',
+                codePrefix: 'VL',
+                color: 'text-cyan-400',
+                iconBox: 'bg-gradient-to-br from-cyan-500/25 to-blue-600/25 border-cyan-400/35 text-cyan-300',
+                badgeBg: 'bg-cyan-500/15 text-cyan-300 border-cyan-500/30',
+                keywords: ['vật lý', 'vat ly', 'vật lí', 'đề lý', 'de ly', 'môn lý', 'vl12', 'vl11', 'vl10', 'v-t-l', 'ly-12']
+            },
+            {
+                folder: 'Toán Học',
+                icon: 'fa-square-root-variable',
+                codePrefix: 'TH',
+                color: 'text-indigo-400',
+                iconBox: 'bg-gradient-to-br from-indigo-500/25 to-violet-600/25 border-indigo-400/35 text-indigo-300',
+                badgeBg: 'bg-indigo-500/15 text-indigo-300 border-indigo-500/30',
+                keywords: ['toán', 'toan', 'đề toán', 'giải tích', 'hình học', 'đại số', 'logarit', 'hàm số']
+            },
+            {
+                folder: 'Hóa Học',
+                icon: 'fa-flask-vial',
+                codePrefix: 'HH',
+                color: 'text-emerald-400',
+                iconBox: 'bg-gradient-to-br from-emerald-500/25 to-green-600/25 border-emerald-400/35 text-emerald-300',
+                badgeBg: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
+                keywords: ['hóa học', 'hoa hoc', 'đề hóa', 'de hoa', 'môn hóa', 'hh12', 'este', 'hữu cơ', 'vô cơ']
+            },
+            {
+                folder: 'Sinh Học',
+                icon: 'fa-dna',
+                codePrefix: 'SH',
+                color: 'text-teal-400',
+                iconBox: 'bg-gradient-to-br from-teal-500/25 to-emerald-600/25 border-teal-400/35 text-teal-300',
+                badgeBg: 'bg-teal-500/15 text-teal-300 border-teal-500/30',
+                keywords: ['sinh học', 'sinh hoc', 'đề sinh', 'de sinh', 'di truyền', 'tiến hóa', 'sinh thái']
+            },
+            {
+                folder: 'Tiếng Anh',
+                icon: 'fa-earth-americas',
+                codePrefix: 'TA',
+                color: 'text-amber-400',
+                iconBox: 'bg-gradient-to-br from-amber-500/25 to-orange-600/25 border-amber-400/35 text-amber-300',
+                badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/30',
+                keywords: ['tiếng anh', 'tieng anh', 'đề anh', 'english', 'ielts', 'toeic', 'ngữ pháp']
+            },
+            {
+                folder: 'Ngữ Văn',
+                icon: 'fa-feather-pointed',
+                codePrefix: 'NV',
+                color: 'text-rose-400',
+                iconBox: 'bg-gradient-to-br from-rose-500/25 to-pink-600/25 border-rose-400/35 text-rose-300',
+                badgeBg: 'bg-rose-500/15 text-rose-300 border-rose-500/30',
+                keywords: ['ngữ văn', 'ngu van', 'đề văn', 'văn học', 'nghị luận', 'đọc hiểu']
+            },
+            {
+                folder: 'Tin Học',
+                icon: 'fa-microchip',
+                codePrefix: 'IT',
+                color: 'text-purple-400',
+                iconBox: 'bg-gradient-to-br from-purple-500/25 to-fuchsia-600/25 border-purple-400/35 text-purple-300',
+                badgeBg: 'bg-purple-500/15 text-purple-300 border-purple-500/30',
+                keywords: ['tin học', 'tin hoc', 'đề tin', 'lập trình', 'python', 'c++', 'thuật toán']
+            },
+            {
+                folder: 'Lịch Sử',
+                icon: 'fa-landmark-dome',
+                codePrefix: 'LS',
+                color: 'text-orange-400',
+                iconBox: 'bg-gradient-to-br from-orange-500/25 to-red-600/25 border-orange-400/35 text-orange-300',
+                badgeBg: 'bg-orange-500/15 text-orange-300 border-orange-500/30',
+                keywords: ['lịch sử', 'lich su', 'đề sử', 'môn sử']
+            },
+            {
+                folder: 'Địa Lý',
+                icon: 'fa-compass',
+                codePrefix: 'DL',
+                color: 'text-sky-400',
+                iconBox: 'bg-gradient-to-br from-sky-500/25 to-cyan-600/25 border-sky-400/35 text-sky-300',
+                badgeBg: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
+                keywords: ['địa lý', 'dia ly', 'địa lí', 'đề địa', 'atlat']
+            },
+            {
+                folder: 'ĐGNL - Tư Duy',
+                icon: 'fa-brain',
+                codePrefix: 'TSA',
+                color: 'text-fuchsia-400',
+                iconBox: 'bg-gradient-to-br from-fuchsia-500/25 to-purple-600/25 border-fuchsia-400/35 text-fuchsia-300',
+                badgeBg: 'bg-fuchsia-500/15 text-fuchsia-300 border-fuchsia-500/30',
+                keywords: ['đgnl', 'dgnl', 'đánh giá năng lực', 'tsa', 'tư duy', 'hsa', 'apt']
+            }
+        ];
+
+        function detectFolderFromExamName(title = '', url = '') {
+            const rawTitle = String(title).trim();
+            const bracketMatch = rawTitle.match(/^\[([^\]]+)\]/);
+            if (bracketMatch && bracketMatch[1].trim()) {
+                return bracketMatch[1].trim();
+            }
+            if (rawTitle.includes('/')) {
+                const parts = rawTitle.split('/');
+                if (parts[0].trim().length > 0 && parts[0].trim().length <= 25) {
+                    return parts[0].trim();
+                }
+            }
+
+            const combined = `${rawTitle} ${url}`.toLowerCase();
+            for (const rule of SUBJECT_FOLDER_RULES) {
+                if (rule.keywords.some(kw => combined.includes(kw))) {
+                    return rule.folder;
+                }
+            }
+            return 'Vật Lý';
+        }
+
+        function getFolderMeta(folderName) {
+            const cleanName = String(folderName || 'Vật Lý').trim();
+            const found = SUBJECT_FOLDER_RULES.find(r => r.folder.toLowerCase() === cleanName.toLowerCase());
+            if (found) return found;
+
+            const lower = cleanName.toLowerCase();
+            for (const rule of SUBJECT_FOLDER_RULES) {
+                if (rule.keywords.some(kw => lower.includes(kw))) {
+                    return { ...rule, folder: cleanName };
+                }
+            }
+
+            return {
+                folder: cleanName || 'Mã Đề Chung',
+                icon: 'fa-satellite-dish',
+                codePrefix: 'MĐ',
+                color: 'text-amber-400',
+                iconBox: 'bg-gradient-to-br from-amber-500/25 to-yellow-600/25 border-amber-400/35 text-amber-300',
+                badgeBg: 'bg-amber-500/15 text-amber-300 border-amber-500/30'
+            };
+        }
+
+        function extractExamCodeBadge(exam, meta) {
+            const title = String(exam.title || '');
+            const codeMatch = title.match(/(?:mã\s*đề|đề\s*số|đề|mã)\s*[:#-]?\s*(\d{1,4}[A-Za-z]?)/i);
+            if (codeMatch && codeMatch[1]) {
+                const padded = codeMatch[1].length === 1 ? `0${codeMatch[1]}` : codeMatch[1];
+                return `${meta.codePrefix || 'MĐ'}-${padded}`;
+            }
+            const anyNum = title.match(/(\d{2,4})/);
+            if (anyNum && anyNum[1]) {
+                return `${meta.codePrefix || 'MĐ'}-${anyNum[1]}`;
+            }
+            return `${meta.codePrefix || 'MĐ'}-01`;
+        }
+
+        function updateModalFolderIconPreview(folderName) {
+            const previewEl = document.getElementById('modalFolderIconPreview');
+            if (!previewEl) return;
+            const meta = getFolderMeta(folderName);
+            previewEl.className = `w-6 h-6 rounded-lg border flex items-center justify-center transition-all ${meta.iconBox}`;
+            previewEl.innerHTML = `<i class="fa-solid ${meta.icon} text-xs"></i>`;
+        }
+
+        // ============================================================================
+        // 4. STATE & FIREBASE REAL-TIME SYNC (DEFAULT EXAM REMOVED)
+        // ============================================================================
+        let customExams = [];
+        let activeFolder = 'ALL';
+        let manualFolderEdited = false;
+
+        let workspaceTimerInterval = null;
+        let workspaceElapsedSeconds = 0;
+
+        let db = null;
+        let auth = null;
+        let currentUser = null;
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'cosmic-exam-hub-v1';
+
+        async function initFirebaseSync() {
+            try {
+                if (typeof __firebase_config === 'undefined' || !__firebase_config) {
+                    renderAll();
+                    return;
+                }
+                const firebaseConfig = JSON.parse(__firebase_config);
+                const app = initializeApp(firebaseConfig);
+                auth = getAuth(app);
+                db = getFirestore(app);
+
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+
+                onAuthStateChanged(auth, (user) => {
+                    currentUser = user;
+                    if (user) {
+                        const examsRef = collection(db, 'artifacts', appId, 'public', 'data', 'exams');
+                        onSnapshot(examsRef, (snapshot) => {
+                            const loaded = [];
+                            snapshot.forEach((docSnap) => {
+                                const data = docSnap.data();
+                                // Ignore any legacy default exam id if it ever existed
+                                if (docSnap.id !== 'vat-ly-12-de-2') {
+                                    loaded.push({ id: docSnap.id, ...data });
+                                }
+                            });
+                            customExams = loaded;
+                            renderAll();
+                        }, (error) => {
+                            console.error("Lỗi đồng bộ danh sách đề:", error);
+                        });
+                    }
+                });
+            } catch (err) {
+                console.warn("Chế độ trực tiếp:", err);
+                renderAll();
+            }
+        }
+
+        function getAllExams() {
+            const map = new Map();
+            customExams.forEach(ex => {
+                if (ex && ex.title && ex.url && ex.id !== 'vat-ly-12-de-2') {
+                    const resolvedFolder = (ex.folder && ex.folder.trim())
+                        ? ex.folder.trim()
+                        : detectFolderFromExamName(ex.title, ex.url);
+                    map.set(ex.id, { ...ex, folder: resolvedFolder });
+                }
+            });
+            return Array.from(map.values()).sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+        }
+
+        // ============================================================================
+        // 5. RENDER FOLDER PILLS & EXAM CARDS
+        //    (Hides all bars/containers when empty so cosmic background is 100% visible)
+        // ============================================================================
+        function renderAll() {
+            const allExams = getAllExams();
+            const controlBarSection = document.getElementById('controlBarSection');
+            const examListContainer = document.getElementById('examListContainer');
+
+            // Requirement #4: When there are no files/exams, hide the middle bar & empty box completely
+            if (allExams.length === 0) {
+                if (controlBarSection) controlBarSection.classList.add('hidden');
+                if (examListContainer) examListContainer.innerHTML = '';
+                return;
+            }
+
+            if (controlBarSection) controlBarSection.classList.remove('hidden');
+            renderFolders(allExams);
+            renderExams(allExams);
+        }
+        window.renderAll = renderAll;
+
+        function renderFolders(allExams = getAllExams()) {
+            const container = document.getElementById('folderListContainer');
+            if (!container) return;
+
+            const folderCounts = new Map();
+            allExams.forEach(ex => {
+                const folderName = ex.folder || 'Vật Lý';
+                folderCounts.set(folderName, (folderCounts.get(folderName) || 0) + 1);
+            });
+
+            if (activeFolder !== 'ALL' && !folderCounts.has(activeFolder)) {
+                activeFolder = 'ALL';
+            }
+
+            const allActive = activeFolder === 'ALL';
+            let html = `
+                <button onclick="selectFolder('ALL')" class="flex-shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2 ${allActive ? 'pill-active font-semibold' : 'btn-crystal'}">
+                    <span class="w-5 h-5 rounded-lg flex items-center justify-center ${allActive ? 'bg-cyan-400/25 text-cyan-200' : 'bg-cyan-500/15 text-cyan-400'}">
+                        <i class="fa-solid fa-globe text-xs"></i>
+                    </span>
+                    <span>Tất Cả</span>
+                    <span class="px-1.5 py-0.5 rounded-full text-[10px] ${allActive ? 'bg-white/20 text-white' : 'bg-slate-800/90 text-cyan-300'}">${allExams.length}</span>
+                </button>
+            `;
+
+            Array.from(folderCounts.entries()).forEach(([folderName, count]) => {
+                const isSelected = activeFolder === folderName;
+                const meta = getFolderMeta(folderName);
+                html += `
+                    <button onclick="selectFolder('${escapeAttr(folderName)}')" class="flex-shrink-0 px-3.5 py-2 rounded-xl text-xs sm:text-sm font-medium transition flex items-center gap-2 ${isSelected ? 'pill-active font-semibold' : 'btn-crystal'}">
+                        <span class="w-5 h-5 rounded-lg flex items-center justify-center ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-800/90 ' + meta.color}">
+                            <i class="fa-solid ${meta.icon} text-xs"></i>
+                        </span>
+                        <span>${escapeHtml(folderName)}</span>
+                        <span class="px-1.5 py-0.5 rounded-full text-[10px] ${isSelected ? 'bg-white/20 text-white' : 'bg-slate-800/90 text-slate-400'}">${count}</span>
+                    </button>
+                `;
+            });
+
+            container.innerHTML = html;
+        }
+
+        window.selectFolder = function(folderName) {
+            window.playSoftTap();
+            activeFolder = folderName;
+            renderAll();
+        };
+
+        window.clearSearch = function() {
+            window.playSoftTap();
+            const input = document.getElementById('examSearchInput');
+            if (input) {
+                input.value = '';
+                renderExams();
+            }
+        };
+
+        function renderExams(allExams = getAllExams()) {
+            const container = document.getElementById('examListContainer');
+            if (!container) return;
+
+            if (allExams.length === 0) {
+                container.innerHTML = '';
+                return;
+            }
+
+            const searchInput = document.getElementById('examSearchInput');
+            const clearBtn = document.getElementById('clearSearchBtn');
+            const searchQuery = (searchInput?.value || '').trim().toLowerCase();
+
+            if (clearBtn) {
+                clearBtn.classList.toggle('hidden', !searchQuery);
+            }
+
+            const filteredExams = allExams.filter(ex => {
+                const matchesFolder = activeFolder === 'ALL' || ex.folder === activeFolder;
+                const matchesSearch = !searchQuery ||
+                    ex.title.toLowerCase().includes(searchQuery) ||
+                    (ex.folder || '').toLowerCase().includes(searchQuery);
+                return matchesFolder && matchesSearch;
+            });
+
+            // Minimalist floating pill when search filter returns 0 (never a big blocking box)
+            if (filteredExams.length === 0) {
+                container.innerHTML = `
+                    <div class="flex justify-center pt-2">
+                        <div class="btn-crystal px-4 py-2 rounded-full text-xs text-slate-300 flex items-center gap-2.5">
+                            <i class="fa-solid fa-magnifying-glass text-cyan-400"></i>
+                            <span>Không tìm thấy đề phù hợp</span>
+                            <button onclick="clearSearch()" class="text-cyan-300 hover:text-white font-semibold underline underline-offset-2">Xóa lọc</button>
+                        </div>
+                    </div>
+                `;
+                return;
+            }
+
+            const grouped = new Map();
+            filteredExams.forEach(ex => {
+                const f = ex.folder || 'Vật Lý';
+                if (!grouped.has(f)) grouped.set(f, []);
+                grouped.get(f).push(ex);
+            });
+
+            container.innerHTML = Array.from(grouped.entries()).map(([folderName, examsInFolder]) => {
+                const meta = getFolderMeta(folderName);
+                return `
+                <div class="space-y-3.5">
+                    <div class="flex items-center justify-between px-1">
+                        <div class="flex items-center gap-3">
+                            <div class="folder-emblem w-9 h-9 sm:w-10 sm:h-10 rounded-xl border flex items-center justify-center ${meta.iconBox}">
+                                <i class="fa-solid ${meta.icon} text-sm sm:text-base"></i>
+                            </div>
+                            <div>
+                                <div class="flex items-center gap-2">
+                                    <h2 class="font-display font-bold text-base sm:text-lg text-white tracking-tight">
+                                        Thư mục ${escapeHtml(folderName)}
+                                    </h2>
+                                    <span class="px-2 py-0.5 rounded-full text-[11px] font-medium bg-slate-900/80 text-cyan-300 border border-white/10">
+                                        ${examsInFolder.length} đề
+                                    </span>
+                                </div>
+                                <p class="text-[11px] text-slate-400">Mã phân loại: <span class="font-mono text-slate-300 font-semibold">${escapeHtml(meta.codePrefix || 'MĐ')}</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3.5 sm:gap-4">
+                        ${examsInFolder.map(exam => renderExamCardHtml(exam, meta)).join('')}
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+        window.renderExams = renderExams;
+
+        function renderExamCardHtml(exam, meta) {
+            const examCodeBadge = extractExamCodeBadge(exam, meta);
+            return `
+            <article class="exam-card rounded-2xl p-4 sm:p-5 flex flex-col justify-between gap-4 relative overflow-hidden group">
+                <div class="pointer-events-none absolute -right-3 -bottom-3 opacity-[0.06] group-hover:opacity-[0.14] group-hover:scale-110 transition-all duration-500 ${meta.color}">
+                    <i class="fa-solid ${meta.icon} text-7xl"></i>
+                </div>
+
+                <div class="space-y-3 relative z-10">
+                    <div class="flex items-center justify-between gap-2">
+                        <div class="flex items-center gap-1.5 flex-wrap">
+                            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-semibold border ${meta.badgeBg}">
+                                <i class="fa-solid ${meta.icon} text-[11px]"></i>
+                                <span>${escapeHtml(exam.folder || 'Vật Lý')}</span>
+                            </span>
+                            <span class="inline-flex items-center gap-1 px-2 py-1 rounded-lg text-[10px] font-mono font-bold bg-slate-950/70 text-slate-300 border border-white/10">
+                                <i class="fa-solid fa-hashtag text-[9px] text-cyan-400"></i>
+                                ${escapeHtml(examCodeBadge)}
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-1.5 flex-shrink-0">
+                            <button onclick="copyExamUrl('${escapeAttr(exam.url)}')" class="btn-crystal w-8 h-8 rounded-xl flex items-center justify-center text-xs text-slate-300 hover:text-cyan-300" title="Sao chép link">
+                                <i class="fa-regular fa-copy"></i>
+                            </button>
+                            <button onclick="deleteCustomExam('${escapeAttr(exam.id)}')" class="btn-crystal w-8 h-8 rounded-xl flex items-center justify-center text-xs text-slate-400 hover:text-rose-400 hover:border-rose-400/40" title="Xóa đề này">
+                                <i class="fa-regular fa-trash-can"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div onclick="openExamWorkspace('${escapeAttr(exam.id)}')" class="cursor-pointer flex items-start gap-3 pt-0.5">
+                        <div class="folder-emblem w-10 h-10 rounded-xl border flex-shrink-0 flex items-center justify-center ${meta.iconBox} group-hover:scale-105 transition duration-300">
+                            <i class="fa-solid ${meta.icon} text-base"></i>
+                        </div>
+                        <h3 class="font-display font-bold text-base sm:text-lg text-white group-hover:text-cyan-200 transition leading-snug line-clamp-2">
+                            ${escapeHtml(exam.title)}
+                        </h3>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2.5 pt-1 relative z-10">
+                    <button onclick="openExamWorkspace('${escapeAttr(exam.id)}')" class="btn-aurora flex-1 py-2.5 px-3.5 rounded-xl text-xs sm:text-sm font-semibold flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-play text-[11px] text-cyan-300"></i>
+                        <span>Làm Bài Ngay</span>
+                    </button>
+                    <a href="${escapeAttr(exam.url)}" target="_blank" rel="noopener noreferrer" onclick="playSoftTap()" class="btn-crystal py-2.5 px-3.5 rounded-xl text-xs font-medium flex items-center justify-center gap-1.5" title="Mở trong tab mới">
+                        <i class="fa-solid fa-up-right-from-square text-cyan-300"></i>
+                        <span>Tab Mới</span>
+                    </a>
+                </div>
+            </article>
+            `;
+        }
+
+        // ============================================================================
+        // 6. IN-APP EXAM WORKSPACE
+        // ============================================================================
+        window.openExamWorkspace = function(examId) {
+            window.playCalmingDrop();
+            const exams = getAllExams();
+            const exam = exams.find(e => e.id === examId);
+            if (!exam) return;
+
+            const modal = document.getElementById('examWorkspaceModal');
+            const titleEl = document.getElementById('workspaceExamTitle');
+            const folderTagEl = document.getElementById('workspaceFolderTag');
+            const externalLink = document.getElementById('workspaceExternalLink');
+            const iframe = document.getElementById('examIframe');
+            const loader = document.getElementById('iframeLoader');
+
+            titleEl.textContent = exam.title;
+            if (folderTagEl) {
+                const meta = getFolderMeta(exam.folder || 'Vật Lý');
+                folderTagEl.className = `hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg text-[11px] font-semibold border ${meta.badgeBg}`;
+                folderTagEl.innerHTML = `<i class="fa-solid ${meta.icon} text-[10px]"></i> <span>${escapeHtml(exam.folder || 'Vật Lý')}</span>`;
+            }
+            externalLink.href = exam.url;
+            loader.style.opacity = '1';
+            loader.style.display = 'flex';
+
+            iframe.onload = () => {
+                loader.style.opacity = '0';
+                setTimeout(() => { loader.style.display = 'none'; }, 250);
+            };
+            iframe.src = exam.url;
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+
+            workspaceElapsedSeconds = 0;
+            updateWorkspaceTimerUI();
+            if (workspaceTimerInterval) clearInterval(workspaceTimerInterval);
+            workspaceTimerInterval = setInterval(() => {
+                workspaceElapsedSeconds++;
+                updateWorkspaceTimerUI();
+            }, 1000);
+        };
+
+        function updateWorkspaceTimerUI() {
+            const display = document.getElementById('workspaceTimerDisplay');
+            if (display) {
+                const mins = Math.floor(workspaceElapsedSeconds / 60);
+                const secs = workspaceElapsedSeconds % 60;
+                display.textContent = `${String(mins).padStart(2, '0')}:${String(secs).padStart(2, '0')}`;
+            }
+        }
+
+        window.closeExamWorkspace = function() {
+            playGentleLowTone();
+            const modal = document.getElementById('examWorkspaceModal');
+            const iframe = document.getElementById('examIframe');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            iframe.src = 'about:blank';
+            document.body.style.overflow = '';
+            if (workspaceTimerInterval) {
+                clearInterval(workspaceTimerInterval);
+                workspaceTimerInterval = null;
+            }
+        };
+
+        // ============================================================================
+        // 7. ADD & DELETE EXAM HANDLERS
+        // ============================================================================
+        window.handleAutoDetectFolder = function() {
+            if (manualFolderEdited) return;
+            const titleVal = document.getElementById('newExamTitle')?.value || '';
+            const urlVal = document.getElementById('newExamUrl')?.value || '';
+            const folderInput = document.getElementById('newExamFolder');
+            if (!folderInput) return;
+
+            const detected = detectFolderFromExamName(titleVal, urlVal);
+            folderInput.value = detected;
+            updateModalFolderIconPreview(detected);
+        };
+
+        window.pickQuickFolder = function(folderName) {
+            window.playSoftTap();
+            manualFolderEdited = true;
+            const folderInput = document.getElementById('newExamFolder');
+            if (folderInput) {
+                folderInput.value = folderName;
+            }
+            updateModalFolderIconPreview(folderName);
+        };
+
+        window.markManualFolderEdit = function() {
+            manualFolderEdited = true;
+            const folderInput = document.getElementById('newExamFolder');
+            if (folderInput) {
+                updateModalFolderIconPreview(folderInput.value);
+            }
+        };
+
+        window.toggleExamPasswordVisibility = function() {
+            window.playSoftTap();
+            const passInput = document.getElementById('newExamPassword');
+            const eyeIcon = document.getElementById('examPasswordEyeIcon');
+            if (!passInput || !eyeIcon) return;
+            if (passInput.type === 'password') {
+                passInput.type = 'text';
+                eyeIcon.className = 'fa-regular fa-eye-slash text-cyan-300';
+            } else {
+                passInput.type = 'password';
+                eyeIcon.className = 'fa-regular fa-eye';
+            }
+        };
+
+        window.openAddExamModal = function() {
+            window.playCalmingDrop();
+            manualFolderEdited = false;
+            const modal = document.getElementById('addExamModal');
+            const errorEl = document.getElementById('examPasswordError');
+            const folderInput = document.getElementById('newExamFolder');
+            const passWrapper = document.getElementById('passwordFieldWrapper');
+
+            if (errorEl) errorEl.classList.add('hidden');
+            if (folderInput) {
+                if (!folderInput.value) {
+                    folderInput.value = activeFolder !== 'ALL' ? activeFolder : 'Vật Lý';
+                }
+                updateModalFolderIconPreview(folderInput.value);
+            }
+
+            if (passWrapper) {
+                passWrapper.classList.toggle('hidden', isAdminUnlocked);
+            }
+
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            setTimeout(() => document.getElementById('newExamUrl')?.focus(), 60);
+        };
+
+        window.closeAddExamModal = function() {
+            playGentleLowTone();
+            const modal = document.getElementById('addExamModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        };
+
+        window.handleAddExamSubmit = async function(e) {
+            e.preventDefault();
+            const rawTitle = document.getElementById('newExamTitle').value.trim();
+            const url = document.getElementById('newExamUrl').value.trim();
+            const folderInputVal = document.getElementById('newExamFolder').value.trim();
+            const passwordInput = document.getElementById('newExamPassword');
+            const errorEl = document.getElementById('examPasswordError');
+
+            if (!isAdminUnlocked) {
+                if (!passwordInput || !verifyAdminSecret(passwordInput.value)) {
+                    playGentleLowTone();
+                    if (errorEl) errorEl.classList.remove('hidden');
+                    showToast('🔒 Mật khẩu quản trị không chính xác!', 'error');
+                    passwordInput?.focus();
+                    return;
+                }
+                isAdminUnlocked = true;
+                passwordInput.value = '';
+                const badge = document.getElementById('adminUnlockedBadge');
+                if (badge) {
+                    badge.classList.remove('hidden');
+                    badge.classList.add('inline-flex');
+                }
+            }
+
+            if (!rawTitle || !url) return;
+
+            const resolvedFolder = folderInputVal || detectFolderFromExamName(rawTitle, url);
+
+            let cleanTitle = rawTitle;
+            if (rawTitle.includes('/')) {
+                const parts = rawTitle.split('/');
+                if (parts[0].trim().toLowerCase() === resolvedFolder.toLowerCase() && parts.slice(1).join('/').trim()) {
+                    cleanTitle = parts.slice(1).join('/').trim();
+                }
+            }
+
+            const newExam = {
+                id: 'exam-' + Date.now(),
+                title: cleanTitle,
+                folder: resolvedFolder,
+                url,
+                isDefault: false,
+                createdAt: Date.now()
+            };
+
+            customExams.unshift(newExam);
+            activeFolder = resolvedFolder;
+            renderAll();
+
+            const modal = document.getElementById('addExamModal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+
+            document.getElementById('newExamUrl').value = '';
+            document.getElementById('newExamTitle').value = '';
+            manualFolderEdited = false;
+
+            playZenSuccessChord();
+            showToast(`✨ Đã thêm "${cleanTitle}" vào thư mục [${resolvedFolder}]!`, 'success');
+
+            if (currentUser && db) {
+                try {
+                    const docRef = doc(db, 'artifacts', appId, 'public', 'data', 'exams', newExam.id);
+                    await setDoc(docRef, newExam);
+                } catch (err) {
+                    console.error("Lỗi lưu đề:", err);
+                }
+            }
+        };
+
+        window.deleteCustomExam = async function(examId) {
+            window.playSoftTap();
+            customExams = customExams.filter(e => e.id !== examId);
+            renderAll();
+            if (currentUser && db) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'exams', examId));
+                } catch (err) {
+                    console.error("Lỗi xóa đề:", err);
+                }
+            }
+            showToast('🗑️ Đã xóa đề thi.', 'info');
+        };
+
+        // ============================================================================
+        // 8. HELPERS & TOAST
+        // ============================================================================
+        window.copyExamUrl = function(url) {
+            window.playSoftTap();
+            const tempInput = document.createElement('textarea');
+            tempInput.value = url;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+            showToast('🔗 Đã sao chép link đề thi!', 'success');
+        };
+
+        function showToast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            if (!container) return;
+            const colors = {
+                success: 'bg-emerald-950/90 border-emerald-400/40 text-emerald-200',
+                error: 'bg-rose-950/90 border-rose-400/40 text-rose-200',
+                info: 'bg-slate-900/90 border-cyan-400/35 text-cyan-200'
+            };
+            const toast = document.createElement('div');
+            toast.className = `px-4 py-3 rounded-2xl border backdrop-blur-xl shadow-2xl text-xs sm:text-sm font-medium transition-all duration-300 ${colors[type] || colors.info}`;
+            toast.textContent = message;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                toast.style.transform = 'translateY(8px)';
+                setTimeout(() => toast.remove(), 300);
+            }, 2600);
+        }
+
+        function escapeHtml(str) {
+            return String(str || '')
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+
+        function escapeAttr(str) {
+            return String(str || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        }
+
+        // ============================================================================
+        // 9. EXPANDED LIVING COSMIC ECOSYSTEM CANVAS:
+        //    - Deep Spiral Galaxies (Các thiên hà xoắn ốc)
+        //    - 3D Living Solar System (Hệ Mặt Trời & các hành tinh)
+        //    - Cosmic Bioluminescent Jellyfish (Sứa tinh vân phát quang)
+        //    - Celestial Space Whale & Stardust Manta Rays (Cá voi & Cá đuối vũ trụ)
+        //    - Futuristic Spaceships (Tàu không gian du hành)
+        //    - Floating Orbital Satellites (Vệ tinh lơ lửng)
+        // ============================================================================
+        function initCosmicCanvas() {
+            const canvas = document.getElementById('starfield');
+            if (!canvas) return;
+            const ctx = canvas.getContext('2d');
+            let width = canvas.width = window.innerWidth;
+            let height = canvas.height = window.innerHeight;
+
+            // --- A. TWINKLING STARFIELD ---
+            const starColors = ['#ffffff', '#bae6fd', '#c7d2fe', '#fde68a', '#f5d0fe', '#99f6e4'];
+            const starCount = Math.min(200, Math.floor((width * height) / 7500));
+            const stars = Array.from({ length: starCount }, () => ({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.55 + 0.35,
+                color: starColors[Math.floor(Math.random() * starColors.length)],
+                alpha: Math.random() * 0.8 + 0.2,
+                twinkleSpeed: (Math.random() * 0.018 + 0.004) * (Math.random() < 0.5 ? 1 : -1),
+                driftY: -(Math.random() * 0.09 + 0.02),
+                driftX: (Math.random() - 0.5) * 0.05
+            }));
+
+            // --- B. DISTANT SPIRAL GALAXIES (CÁC THIÊN HÀ XOẮN ỐC) ---
+            const galaxies = [
+                {
+                    xRatio: 0.16, yRatio: 0.22,
+                    radius: 85, tilt: 0.48, angle: 0.4, rotSpeed: 0.0008,
+                    arms: 3,
+                    coreColor: 'rgba(244, 114, 182, 0.85)',
+                    armColor: 'rgba(168, 85, 247, 0.45)',
+                    dustColor: '#e879f9'
+                },
+                {
+                    xRatio: 0.84, yRatio: 0.20,
+                    radius: 75, tilt: 0.55, angle: -0.6, rotSpeed: -0.0007,
+                    arms: 2,
+                    coreColor: 'rgba(56, 189, 248, 0.85)',
+                    armColor: 'rgba(99, 102, 241, 0.45)',
+                    dustColor: '#38bdf8'
+                },
+                {
+                    xRatio: 0.14, yRatio: 0.82,
+                    radius: 68, tilt: 0.42, angle: 1.1, rotSpeed: 0.0009,
+                    arms: 2,
+                    coreColor: 'rgba(45, 212, 191, 0.8)',
+                    armColor: 'rgba(14, 165, 233, 0.38)',
+                    dustColor: '#2dd4bf'
+                }
+            ];
+
+            function drawSpiralGalaxies() {
+                for (const g of galaxies) {
+                    g.angle += g.rotSpeed;
+                    const gx = width * g.xRatio;
+                    const gy = height * g.yRatio;
+
+                    ctx.save();
+                    ctx.translate(gx, gy);
+                    ctx.rotate(g.angle * 0.15);
+                    ctx.scale(1, g.tilt);
+                    ctx.rotate(g.angle);
+
+                    // Ambient Galactic Halo
+                    const halo = ctx.createRadialGradient(0, 0, 2, 0, 0, g.radius * 1.35);
+                    halo.addColorStop(0, g.coreColor);
+                    halo.addColorStop(0.35, g.armColor);
+                    halo.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = halo;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, g.radius * 1.35, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Spiral Arms with glowing star clusters
+                    for (let arm = 0; arm < g.arms; arm++) {
+                        const armOffset = (arm * Math.PI * 2) / g.arms;
+                        ctx.beginPath();
+                        for (let t = 0; t < 42; t++) {
+                            const frac = t / 42;
+                            const r = frac * g.radius;
+                            const theta = armOffset + frac * Math.PI * 2.65;
+                            const px = Math.cos(theta) * r;
+                            const py = Math.sin(theta) * r;
+                            if (t === 0) ctx.moveTo(px, py);
+                            else ctx.lineTo(px, py);
+
+                            if (t % 3 === 0) {
+                                ctx.save();
+                                ctx.fillStyle = g.dustColor;
+                                ctx.globalAlpha = (1 - frac) * 0.75;
+                                ctx.beginPath();
+                                ctx.arc(px + Math.sin(t) * 2.5, py + Math.cos(t) * 2.5, (1 - frac) * 2.2 + 0.6, 0, Math.PI * 2);
+                                ctx.fill();
+                                ctx.restore();
+                            }
+                        }
+                        ctx.strokeStyle = g.armColor;
+                        ctx.lineWidth = 3.2;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                    }
+
+                    // Bright Galactic Core
+                    const core = ctx.createRadialGradient(0, 0, 0, 0, 0, g.radius * 0.24);
+                    core.addColorStop(0, '#ffffff');
+                    core.addColorStop(0.5, g.coreColor);
+                    core.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = core;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, g.radius * 0.24, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.restore();
+                }
+            }
+
+            // --- C. SOLAR SYSTEM ---
+            const ORBIT_TILT = 0.50;
+            const SYSTEM_ROTATION = -0.22;
+            const planets = [
+                { name: 'Mercury', orbitRatio: 0.13, size: 3.4, speed: 0.020, angle: Math.random() * 6.28, color: '#e2e8f0', glow: 'rgba(226, 232, 240, 0.6)' },
+                { name: 'Venus',   orbitRatio: 0.19, size: 5.2, speed: 0.014, angle: Math.random() * 6.28, color: '#fef08a', glow: 'rgba(254, 240, 138, 0.75)' },
+                { name: 'Earth',   orbitRatio: 0.26, size: 6.2, speed: 0.010, angle: Math.random() * 6.28, color: '#38bdf8', glow: 'rgba(56, 189, 248, 0.85)', hasMoon: true, moonAngle: 0 },
+                { name: 'Mars',    orbitRatio: 0.34, size: 4.7, speed: 0.008, angle: Math.random() * 6.28, color: '#fb7185', glow: 'rgba(251, 113, 133, 0.75)' },
+                { name: 'Jupiter', orbitRatio: 0.46, size: 11.5, speed: 0.005, angle: Math.random() * 6.28, color: '#fb923c', glow: 'rgba(251, 146, 60, 0.8)' },
+                { name: 'Saturn',  orbitRatio: 0.59, size: 9.5, speed: 0.0036, angle: Math.random() * 6.28, color: '#fde047', glow: 'rgba(253, 224, 71, 0.75)', hasRings: true },
+                { name: 'Uranus',  orbitRatio: 0.71, size: 7.0, speed: 0.0025, angle: Math.random() * 6.28, color: '#22d3ee', glow: 'rgba(34, 211, 238, 0.75)', faintRing: true },
+                { name: 'Neptune', orbitRatio: 0.82, size: 6.8, speed: 0.0019, angle: Math.random() * 6.28, color: '#818cf8', glow: 'rgba(129, 140, 248, 0.8)' }
+            ];
+
+            const asteroids = Array.from({ length: 130 }, () => ({
+                orbitRatio: 0.395 + (Math.random() - 0.5) * 0.035,
+                angle: Math.random() * Math.PI * 2,
+                speed: 0.0055 + Math.random() * 0.002,
+                size: Math.random() * 1.4 + 0.5,
+                alpha: Math.random() * 0.5 + 0.2
+            }));
+
+            function getOrbitPoint(cx, cy, rx, ry, angle) {
+                const rawX = Math.cos(angle) * rx;
+                const rawY = Math.sin(angle) * ry;
+                const cosR = Math.cos(SYSTEM_ROTATION);
+                const sinR = Math.sin(SYSTEM_ROTATION);
+                return {
+                    x: cx + (rawX * cosR - rawY * sinR),
+                    y: cy + (rawX * sinR + rawY * cosR)
+                };
+            }
+
+            let sunPulse = 0;
+            function drawSolarSystem() {
+                const cx = width * 0.5;
+                const cy = height * 0.53;
+                const maxRadius = Math.min(width, height) * 0.68;
+                sunPulse += 0.03;
+
+                ctx.save();
+                ctx.translate(cx, cy);
+                ctx.rotate(SYSTEM_ROTATION);
+
+                for (const p of planets) {
+                    const rx = maxRadius * p.orbitRatio;
+                    const ry = rx * ORBIT_TILT;
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, rx, ry, 0, 0, Math.PI * 2);
+                    ctx.strokeStyle = 'rgba(148, 163, 184, 0.14)';
+                    ctx.lineWidth = 1;
+                    ctx.stroke();
+                }
+
+                for (const ast of asteroids) {
+                    ast.angle += ast.speed;
+                    const rx = maxRadius * ast.orbitRatio;
+                    const ry = rx * ORBIT_TILT;
+                    ctx.fillStyle = `rgba(186, 230, 253, ${ast.alpha})`;
+                    ctx.beginPath();
+                    ctx.arc(Math.cos(ast.angle) * rx, Math.sin(ast.angle) * ry, ast.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+
+                const backPlanets = [];
+                const frontPlanets = [];
+                for (const p of planets) {
+                    p.angle += p.speed;
+                    if (Math.sin(p.angle) < 0) backPlanets.push(p);
+                    else frontPlanets.push(p);
+                }
+
+                backPlanets.forEach(p => drawPlanet(p, cx, cy, maxRadius, 0.85));
+                drawSun(cx, cy, sunPulse);
+                frontPlanets.forEach(p => drawPlanet(p, cx, cy, maxRadius, 1));
+            }
+
+            function drawSun(cx, cy, pulse) {
+                const sunRadius = Math.max(20, Math.min(width, height) * 0.036);
+                const coronaRadius = sunRadius * (4.1 + Math.sin(pulse) * 0.35);
+
+                const coronaGrad = ctx.createRadialGradient(cx, cy, sunRadius * 0.25, cx, cy, coronaRadius);
+                coronaGrad.addColorStop(0, 'rgba(255, 255, 255, 1)');
+                coronaGrad.addColorStop(0.18, 'rgba(253, 224, 71, 0.85)');
+                coronaGrad.addColorStop(0.42, 'rgba(245, 158, 11, 0.38)');
+                coronaGrad.addColorStop(0.72, 'rgba(239, 68, 68, 0.14)');
+                coronaGrad.addColorStop(1, 'rgba(239, 68, 68, 0)');
+
+                ctx.save();
+                ctx.fillStyle = coronaGrad;
+                ctx.beginPath();
+                ctx.arc(cx, cy, coronaRadius, 0, Math.PI * 2);
+                ctx.fill();
+
+                const coreGrad = ctx.createRadialGradient(cx - sunRadius * 0.28, cy - sunRadius * 0.28, 2, cx, cy, sunRadius);
+                coreGrad.addColorStop(0, '#ffffff');
+                coreGrad.addColorStop(0.3, '#fef08a');
+                coreGrad.addColorStop(0.7, '#f59e0b');
+                coreGrad.addColorStop(1, '#ef4444');
+
+                ctx.fillStyle = coreGrad;
+                ctx.shadowColor = '#fbbf24';
+                ctx.shadowBlur = 32;
+                ctx.beginPath();
+                ctx.arc(cx, cy, sunRadius, 0, Math.PI * 2);
+                ctx.fill();
+                ctx.restore();
+            }
+
+            function drawPlanet(p, cx, cy, maxRadius, depthScale) {
+                const rx = maxRadius * p.orbitRatio;
+                const ry = rx * ORBIT_TILT;
+                const pos = getOrbitPoint(cx, cy, rx, ry, p.angle);
+                const perspective = 1 + Math.sin(p.angle) * 0.15;
+                const r = p.size * perspective;
+
+                ctx.save();
+                ctx.beginPath();
+                for (let step = 0; step <= 14; step++) {
+                    const trailAngle = p.angle - step * 0.02;
+                    const tPos = getOrbitPoint(cx, cy, rx, ry, trailAngle);
+                    if (step === 0) ctx.moveTo(tPos.x, tPos.y);
+                    else ctx.lineTo(tPos.x, tPos.y);
+                }
+                ctx.strokeStyle = p.glow;
+                ctx.lineWidth = Math.max(1.6, r * 0.42);
+                ctx.lineCap = 'round';
+                ctx.globalAlpha = 0.45 * depthScale;
+                ctx.stroke();
+                ctx.restore();
+
+                ctx.save();
+                const halo = ctx.createRadialGradient(pos.x, pos.y, r * 0.2, pos.x, pos.y, r * 2.8);
+                halo.addColorStop(0, p.glow);
+                halo.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = halo;
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, r * 2.8, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (p.hasRings || p.faintRing) {
+                    ctx.save();
+                    ctx.translate(pos.x, pos.y);
+                    ctx.rotate(SYSTEM_ROTATION + 0.18);
+                    ctx.beginPath();
+                    ctx.ellipse(0, 0, r * (p.hasRings ? 2.45 : 1.8), r * (p.hasRings ? 0.78 : 0.48), 0, 0, Math.PI * 2);
+                    ctx.strokeStyle = p.hasRings ? 'rgba(253, 224, 71, 0.8)' : 'rgba(34, 211, 238, 0.5)';
+                    ctx.lineWidth = p.hasRings ? 3.0 : 1.4;
+                    ctx.stroke();
+                    ctx.restore();
+                }
+
+                const angleToSun = Math.atan2(cy - pos.y, cx - pos.x);
+                const lightX = pos.x + Math.cos(angleToSun) * (r * 0.42);
+                const lightY = pos.y + Math.sin(angleToSun) * (r * 0.42);
+                const bodyGrad = ctx.createRadialGradient(lightX, lightY, r * 0.06, pos.x, pos.y, r);
+                bodyGrad.addColorStop(0, '#ffffff');
+                bodyGrad.addColorStop(0.32, p.color);
+                bodyGrad.addColorStop(0.85, '#030712');
+                bodyGrad.addColorStop(1, '#020617');
+
+                ctx.fillStyle = bodyGrad;
+                ctx.beginPath();
+                ctx.arc(pos.x, pos.y, r, 0, Math.PI * 2);
+                ctx.fill();
+
+                if (p.hasMoon) {
+                    p.moonAngle = (p.moonAngle || 0) + 0.07;
+                    const moonDist = r * 2.5;
+                    const mx = pos.x + Math.cos(p.moonAngle) * moonDist;
+                    const my = pos.y + Math.sin(p.moonAngle) * (moonDist * 0.65);
+                    ctx.fillStyle = '#f8fafc';
+                    ctx.beginPath();
+                    ctx.arc(mx, my, 1.8, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+                ctx.restore();
+            }
+
+            // --- D. BIOLUMINESCENT COSMIC CREATURES (SINH VẬT VŨ TRỤ PHÁT QUANG) ---
+            // 1. Cosmic Jellyfish (Sứa Tinh Vân)
+            const cosmicJellyfish = [
+                {
+                    x: width * 0.18, y: height * 0.62,
+                    vx: 0.22, vy: -0.28,
+                    size: 22, phase: 0.5,
+                    hue1: '#22d3ee', hue2: '#a855f7', glow: 'rgba(34, 211, 238, 0.45)'
+                },
+                {
+                    x: width * 0.82, y: height * 0.68,
+                    vx: -0.20, vy: -0.25,
+                    size: 18, phase: 2.8,
+                    hue1: '#f472b6', hue2: '#6366f1', glow: 'rgba(244, 114, 182, 0.45)'
+                },
+                {
+                    x: width * 0.72, y: height * 0.28,
+                    vx: -0.16, vy: 0.18,
+                    size: 15, phase: 4.2,
+                    hue1: '#34d399', hue2: '#06b6d4', glow: 'rgba(52, 211, 153, 0.4)'
+                }
+            ];
+
+            function drawCosmicJellyfish() {
+                for (const jf of cosmicJellyfish) {
+                    jf.phase += 0.045;
+                    const pulseBoost = Math.sin(jf.phase) > 0.3 ? 1.45 : 0.65;
+                    jf.x += jf.vx * pulseBoost;
+                    jf.y += jf.vy * pulseBoost;
+
+                    if (jf.x < -60) jf.x = width + 50;
+                    if (jf.x > width + 60) jf.x = -50;
+                    if (jf.y < -60) jf.y = height + 50;
+                    if (jf.y > height + 60) jf.y = -50;
+
+                    const moveAngle = Math.atan2(jf.vy, jf.vx) + Math.PI / 2;
+                    const bellScaleX = 1 + Math.sin(jf.phase) * 0.16;
+                    const bellScaleY = 1 - Math.sin(jf.phase) * 0.12;
+
+                    ctx.save();
+                    ctx.translate(jf.x, jf.y);
+                    ctx.rotate(moveAngle);
+
+                    // Outer Bioluminescent Aura
+                    const aura = ctx.createRadialGradient(0, 0, 2, 0, 0, jf.size * 2.4);
+                    aura.addColorStop(0, jf.glow);
+                    aura.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = aura;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, jf.size * 2.4, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Flowing Sine-Wave Tentacles
+                    const tentacleCount = 6;
+                    for (let t = 0; t < tentacleCount; t++) {
+                        const offsetX = (t - (tentacleCount - 1) / 2) * (jf.size * 0.28);
+                        ctx.beginPath();
+                        ctx.moveTo(offsetX, jf.size * 0.2);
+                        for (let seg = 1; seg <= 10; seg++) {
+                            const sy = jf.size * 0.2 + seg * (jf.size * 0.24);
+                            const wave = Math.sin(jf.phase * 1.4 - seg * 0.55 + t) * (seg * 1.15);
+                            ctx.lineTo(offsetX + wave, sy);
+                        }
+                        ctx.strokeStyle = t % 2 === 0 ? jf.hue1 : jf.hue2;
+                        ctx.globalAlpha = 0.65;
+                        ctx.lineWidth = 1.4;
+                        ctx.lineCap = 'round';
+                        ctx.stroke();
+                    }
+
+                    // Translucent Pulsing Bell Dome
+                    ctx.save();
+                    ctx.scale(bellScaleX, bellScaleY);
+                    const bellGrad = ctx.createRadialGradient(0, -jf.size * 0.3, 2, 0, 0, jf.size);
+                    bellGrad.addColorStop(0, '#ffffff');
+                    bellGrad.addColorStop(0.35, jf.hue1);
+                    bellGrad.addColorStop(0.8, jf.hue2);
+                    bellGrad.addColorStop(1, 'rgba(0,0,0,0)');
+
+                    ctx.globalAlpha = 0.85;
+                    ctx.fillStyle = bellGrad;
+                    ctx.beginPath();
+                    ctx.arc(0, 0, jf.size, Math.PI, 0, false);
+                    ctx.quadraticCurveTo(0, jf.size * 0.35, -jf.size, 0);
+                    ctx.fill();
+
+                    // Glowing Rim & Inner Organelles
+                    ctx.strokeStyle = '#ffffff';
+                    ctx.lineWidth = 1.2;
+                    ctx.globalAlpha = 0.7;
+                    ctx.stroke();
+                    ctx.restore();
+
+                    ctx.restore();
+                }
+            }
+
+            // 2. Celestial Space Whale & Cosmic Manta Ray (Cá Voi Vũ Trụ & Cá Đuối Ánh Sao)
+            const spaceWhale = {
+                x: width * 0.25,
+                y: height * 0.34,
+                vx: 0.38,
+                vy: -0.06,
+                phase: 0,
+                length: 68
+            };
+
+            function drawCelestialWhale() {
+                spaceWhale.phase += 0.04;
+                spaceWhale.x += spaceWhale.vx;
+                spaceWhale.y += spaceWhale.vy + Math.sin(spaceWhale.phase * 0.6) * 0.18;
+
+                if (spaceWhale.x > width + 120) {
+                    spaceWhale.x = -120;
+                    spaceWhale.y = height * (0.2 + Math.random() * 0.55);
+                }
+
+                const heading = Math.atan2(spaceWhale.vy + Math.sin(spaceWhale.phase * 0.6) * 0.12, spaceWhale.vx);
+
+                ctx.save();
+                ctx.translate(spaceWhale.x, spaceWhale.y);
+                ctx.rotate(heading);
+
+                // Soft Celestial Glow around the Whale
+                const whaleHalo = ctx.createRadialGradient(0, 0, 4, -15, 0, 65);
+                whaleHalo.addColorStop(0, 'rgba(56, 189, 248, 0.32)');
+                whaleHalo.addColorStop(0.5, 'rgba(139, 92, 246, 0.15)');
+                whaleHalo.addColorStop(1, 'rgba(0,0,0,0)');
+                ctx.fillStyle = whaleHalo;
+                ctx.beginPath();
+                ctx.arc(-10, 0, 65, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Undulating Spine Points from Head (front +25) to Tail Fluke (-55)
+                const spine = [];
+                const segments = 12;
+                for (let i = 0; i <= segments; i++) {
+                    const frac = i / segments;
+                    const sx = 24 - frac * 78;
+                    const sy = Math.sin(spaceWhale.phase - frac * 3.2) * (frac * 7.5);
+                    // Body thickness profile (head rounded, tapering to tail)
+                    const thickness = i < 3
+                        ? 9.5 * Math.sin((i + 1) * 0.45)
+                        : Math.max(1.6, 11 * (1 - frac));
+                    spine.push({ x: sx, y: sy, r: thickness });
+                }
+
+                // Draw Ethereal Translucent Whale Body
+                const bodyGrad = ctx.createLinearGradient(25, 0, -55, 0);
+                bodyGrad.addColorStop(0, 'rgba(224, 242, 254, 0.92)');
+                bodyGrad.addColorStop(0.35, 'rgba(56, 189, 248, 0.75)');
+                bodyGrad.addColorStop(0.75, 'rgba(129, 140, 248, 0.6)');
+                bodyGrad.addColorStop(1, 'rgba(168, 85, 247, 0.2)');
+
+                ctx.fillStyle = bodyGrad;
+                ctx.beginPath();
+                ctx.moveTo(spine[0].x + 5, spine[0].y);
+                for (let i = 0; i <= segments; i++) {
+                    ctx.lineTo(spine[i].x, spine[i].y - spine[i].r);
+                }
+                // Tail Fluke (Vây đuôi cá voi)
+                const tail = spine[segments];
+                const tailSwing = Math.cos(spaceWhale.phase - 3.2) * 5;
+                ctx.lineTo(tail.x - 12, tail.y - 11 + tailSwing);
+                ctx.quadraticCurveTo(tail.x - 6, tail.y + tailSwing * 0.5, tail.x - 12, tail.y + 11 + tailSwing);
+
+                for (let i = segments; i >= 0; i--) {
+                    ctx.lineTo(spine[i].x, spine[i].y + spine[i].r);
+                }
+                ctx.closePath();
+                ctx.fill();
+
+                // Graceful Pectoral Fins (Vây ngực phát sáng)
+                const finBase = spine[3];
+                const finWave = Math.sin(spaceWhale.phase * 1.1) * 4;
+                ctx.fillStyle = 'rgba(125, 211, 252, 0.65)';
+                ctx.beginPath();
+                ctx.moveTo(finBase.x, finBase.y + 5);
+                ctx.quadraticCurveTo(finBase.x - 12, finBase.y + 24 + finWave, finBase.x - 24, finBase.y + 18 + finWave);
+                ctx.quadraticCurveTo(finBase.x - 12, finBase.y + 9, finBase.x - 6, finBase.y + 5);
+                ctx.fill();
+
+                // Bioluminescent Constellation Dots along the Whale's back
+                ctx.fillStyle = '#ffffff';
+                for (let i = 1; i < segments - 1; i += 2) {
+                    ctx.beginPath();
+                    ctx.arc(spine[i].x, spine[i].y - spine[i].r * 0.35, 1.3, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+
+                ctx.restore();
+            }
+
+            // 3. Stardust Manta Ray (Cá Đuối Ánh Sao)
+            const mantaRay = {
+                x: width * 0.78,
+                y: height * 0.78,
+                vx: -0.34,
+                vy: -0.12,
+                phase: 1.5
+            };
+
+            function drawCosmicMantaRay() {
+                mantaRay.phase += 0.055;
+                mantaRay.x += mantaRay.vx;
+                mantaRay.y += mantaRay.vy + Math.cos(mantaRay.phase * 0.7) * 0.15;
+
+                if (mantaRay.x < -90) mantaRay.x = width + 90;
+                if (mantaRay.y < -90) mantaRay.y = height + 90;
+
+                const angle = Math.atan2(mantaRay.vy, mantaRay.vx);
+                const wingFlap = Math.sin(mantaRay.phase) * 9;
+
+                ctx.save();
+                ctx.translate(mantaRay.x, mantaRay.y);
+                ctx.rotate(angle);
+
+                const mantaGrad = ctx.createRadialGradient(0, 0, 2, 0, 0, 26);
+                mantaGrad.addColorStop(0, 'rgba(240, 253, 250, 0.9)');
+                mantaGrad.addColorStop(0.45, 'rgba(45, 212, 191, 0.65)');
+                mantaGrad.addColorStop(1, 'rgba(56, 189, 248, 0.1)');
+
+                ctx.fillStyle = mantaGrad;
+                ctx.beginPath();
+                ctx.moveTo(16, 0); // Head
+                ctx.quadraticCurveTo(4, -18 - wingFlap * 0.6, -8, -22 - wingFlap); // Right Wingtip
+                ctx.quadraticCurveTo(-12, -6, -18, -1.5); // Tail base
+                ctx.lineTo(-42, Math.sin(mantaRay.phase * 1.5) * 4); // Glowing Whip Tail
+                ctx.lineTo(-18, 1.5);
+                ctx.quadraticCurveTo(-12, 6, -8, 22 + wingFlap); // Left Wingtip
+                ctx.quadraticCurveTo(4, 18 + wingFlap * 0.6, 16, 0);
+                ctx.fill();
+
+                ctx.restore();
+            }
+
+            // --- E. SCI-FI SPACESHIPS (TÀU KHÔNG GIAN DU HÀNH) ---
+            const spaceships = [
+                {
+                    x: width * 0.12, y: height * 0.42,
+                    vx: 0.68, vy: -0.18,
+                    scale: 0.95,
+                    engineColor: '#38bdf8',
+                    trail: []
+                },
+                {
+                    x: width * 0.88, y: height * 0.32,
+                    vx: -0.58, vy: 0.14,
+                    scale: 0.82,
+                    engineColor: '#c084fc',
+                    trail: []
+                }
+            ];
+
+            function drawSpaceships() {
+                for (const ship of spaceships) {
+                    ship.x += ship.vx;
+                    ship.y += ship.vy + Math.sin(ship.x * 0.006) * 0.12;
+
+                    // Wrap seamlessly around screen edges
+                    if (ship.x > width + 100) {
+                        ship.x = -100;
+                        ship.y = height * (0.15 + Math.random() * 0.65);
+                        ship.trail = [];
+                    } else if (ship.x < -100) {
+                        ship.x = width + 100;
+                        ship.y = height * (0.15 + Math.random() * 0.65);
+                        ship.trail = [];
+                    }
+
+                    ship.trail.unshift({ x: ship.x, y: ship.y });
+                    if (ship.trail.length > 26) ship.trail.pop();
+
+                    // Luminous Ion Engine Trail
+                    if (ship.trail.length > 2) {
+                        ctx.save();
+                        ctx.beginPath();
+                        for (let i = 0; i < ship.trail.length; i++) {
+                            const pt = ship.trail[i];
+                            if (i === 0) ctx.moveTo(pt.x, pt.y);
+                            else ctx.lineTo(pt.x, pt.y);
+                        }
+                        ctx.strokeStyle = ship.engineColor;
+                        ctx.lineWidth = 2.4 * ship.scale;
+                        ctx.lineCap = 'round';
+                        ctx.globalAlpha = 0.45;
+                        ctx.stroke();
+                        ctx.restore();
+                    }
+
+                    const heading = Math.atan2(ship.vy + Math.cos(ship.x * 0.006) * 0.08, ship.vx);
+
+                    ctx.save();
+                    ctx.translate(ship.x, ship.y);
+                    ctx.rotate(heading);
+                    ctx.scale(ship.scale, ship.scale);
+
+                    // Ion Thruster Flame Glow
+                    const thrusterGrad = ctx.createRadialGradient(-14, 0, 1, -18, 0, 14);
+                    thrusterGrad.addColorStop(0, '#ffffff');
+                    thrusterGrad.addColorStop(0.4, ship.engineColor);
+                    thrusterGrad.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = thrusterGrad;
+                    ctx.beginPath();
+                    ctx.arc(-15, 0, 13, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Sleek Swept-Wing Starcruiser Hull
+                    ctx.fillStyle = '#e2e8f0';
+                    ctx.beginPath();
+                    ctx.moveTo(18, 0);        // Nose cone
+                    ctx.lineTo(2, -5);
+                    ctx.lineTo(-10, -13);     // Left swept wingtip
+                    ctx.lineTo(-14, -10);
+                    ctx.lineTo(-9, -3);
+                    ctx.lineTo(-13, 0);       // Rear engine nozzle
+                    ctx.lineTo(-9, 3);
+                    ctx.lineTo(-14, 10);
+                    ctx.lineTo(-10, 13);      // Right swept wingtip
+                    ctx.lineTo(2, 5);
+                    ctx.closePath();
+                    ctx.fill();
+
+                    // Glowing Cyan Cockpit Canopy
+                    ctx.fillStyle = '#38bdf8';
+                    ctx.beginPath();
+                    ctx.ellipse(5, 0, 5.5, 2.2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.restore();
+                }
+            }
+
+            // --- F. FLOATING ORBITAL SATELLITES (VỆ TINH LƠ LỬNG) ---
+            const satellites = [
+                {
+                    xRatio: 0.24, yRatio: 0.18,
+                    angle: 0.35, rotSpeed: 0.0022,
+                    bobPhase: 0, scale: 0.92,
+                    beaconColor: '#38bdf8'
+                },
+                {
+                    xRatio: 0.78, yRatio: 0.80,
+                    angle: -0.5, rotSpeed: -0.0018,
+                    bobPhase: 2.1, scale: 0.85,
+                    beaconColor: '#f43f5e'
+                }
+            ];
+
+            function drawSatellites() {
+                for (const sat of satellites) {
+                    sat.angle += sat.rotSpeed;
+                    sat.bobPhase += 0.025;
+
+                    const sx = width * sat.xRatio + Math.cos(sat.bobPhase * 0.7) * 14;
+                    const sy = height * sat.yRatio + Math.sin(sat.bobPhase) * 10;
+
+                    ctx.save();
+                    ctx.translate(sx, sy);
+                    ctx.rotate(sat.angle);
+                    ctx.scale(sat.scale, sat.scale);
+
+                    // Left & Right Solar Panel Wings
+                    ctx.fillStyle = 'rgba(30, 64, 175, 0.85)';
+                    ctx.strokeStyle = 'rgba(125, 211, 252, 0.65)';
+                    ctx.lineWidth = 1;
+
+                    // Left Solar Wing
+                    ctx.fillRect(-34, -5, 22, 10);
+                    ctx.strokeRect(-34, -5, 22, 10);
+                    // Right Solar Wing
+                    ctx.fillRect(12, -5, 22, 10);
+                    ctx.strokeRect(12, -5, 22, 10);
+
+                    // Solar Grid Lines
+                    ctx.beginPath();
+                    ctx.moveTo(-23, -5); ctx.lineTo(-23, 5);
+                    ctx.moveTo(23, -5); ctx.lineTo(23, 5);
+                    ctx.moveTo(-34, 0); ctx.lineTo(-12, 0);
+                    ctx.moveTo(12, 0); ctx.lineTo(34, 0);
+                    ctx.stroke();
+
+                    // Connecting Struts
+                    ctx.strokeStyle = '#94a3b8';
+                    ctx.lineWidth = 1.6;
+                    ctx.beginPath();
+                    ctx.moveTo(-12, 0); ctx.lineTo(-6, 0);
+                    ctx.moveTo(6, 0); ctx.lineTo(12, 0);
+                    ctx.stroke();
+
+                    // Central Metallic Bus Body
+                    const bodyGrad = ctx.createLinearGradient(-6, -7, 6, 7);
+                    bodyGrad.addColorStop(0, '#f8fafc');
+                    bodyGrad.addColorStop(0.5, '#fbbf24');
+                    bodyGrad.addColorStop(1, '#64748b');
+                    ctx.fillStyle = bodyGrad;
+                    ctx.fillRect(-6, -7, 12, 14);
+
+                    // Parabolic Dish & Communication Antenna
+                    ctx.strokeStyle = '#e2e8f0';
+                    ctx.lineWidth = 1.3;
+                    ctx.beginPath();
+                    ctx.arc(0, -9, 5, 0.2, Math.PI - 0.2);
+                    ctx.stroke();
+                    ctx.beginPath();
+                    ctx.moveTo(0, -9);
+                    ctx.lineTo(0, -16);
+                    ctx.stroke();
+
+                    // Blinking Telemetry Beacon Light
+                    const blinkAlpha = (Math.sin(sat.bobPhase * 3.2) + 1) * 0.5;
+                    ctx.fillStyle = sat.beaconColor;
+                    ctx.globalAlpha = 0.3 + blinkAlpha * 0.7;
+                    ctx.beginPath();
+                    ctx.arc(0, -16, 2.2, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    const beaconGlow = ctx.createRadialGradient(0, -16, 0.5, 0, -16, 9);
+                    beaconGlow.addColorStop(0, sat.beaconColor);
+                    beaconGlow.addColorStop(1, 'rgba(0,0,0,0)');
+                    ctx.fillStyle = beaconGlow;
+                    ctx.beginPath();
+                    ctx.arc(0, -16, 9, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    ctx.restore();
+                }
+            }
+
+            // --- G. SHOOTING COMETS ---
+            const shootingStars = [];
+            function spawnShootingStar() {
+                if (shootingStars.length > 2) return;
+                shootingStars.push({
+                    x: Math.random() * width * 0.85,
+                    y: Math.random() * height * 0.45,
+                    len: Math.random() * 110 + 80,
+                    speed: Math.random() * 10 + 9,
+                    angle: Math.PI / 5 + (Math.random() * 0.15),
+                    alpha: 1
+                });
+            }
+
+            window.addEventListener('resize', () => {
+                width = canvas.width = window.innerWidth;
+                height = canvas.height = window.innerHeight;
+            });
+
+            function animate() {
+                ctx.clearRect(0, 0, width, height);
+
+                // 1. Background Twinkling Stars
+                for (const s of stars) {
+                    s.alpha += s.twinkleSpeed;
+                    if (s.alpha > 0.95 || s.alpha < 0.15) s.twinkleSpeed *= -1;
+                    s.y += s.driftY;
+                    s.x += s.driftX;
+                    if (s.y < 0) s.y = height;
+                    if (s.x < 0) s.x = width;
+                    if (s.x > width) s.x = 0;
+
+                    ctx.save();
+                    ctx.globalAlpha = Math.max(0.1, Math.min(1, s.alpha));
+                    ctx.fillStyle = s.color;
+                    ctx.beginPath();
+                    ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
+                    ctx.fill();
+                    ctx.restore();
+                }
+
+                // 2. Distant Spiral Galaxies
+                drawSpiralGalaxies();
+
+                // 3. Celestial Space Whale & Stardust Manta Ray
+                drawCelestialWhale();
+                drawCosmicMantaRay();
+
+                // 4. Living Solar System
+                drawSolarSystem();
+
+                // 5. Bioluminescent Cosmic Jellyfish
+                drawCosmicJellyfish();
+
+                // 6. Floating Satellites & Cruising Spaceships
+                drawSatellites();
+                drawSpaceships();
+
+                // 7. Shooting Comets
+                if (Math.random() < 0.015) spawnShootingStar();
+                for (let i = shootingStars.length - 1; i >= 0; i--) {
+                    const m = shootingStars[i];
+                    m.x += Math.cos(m.angle) * m.speed;
+                    m.y += Math.sin(m.angle) * m.speed;
+                    m.alpha -= 0.015;
+
+                    if (m.alpha <= 0 || m.x > width + 120 || m.y > height + 120) {
+                        shootingStars.splice(i, 1);
+                        continue;
+                    }
+
+                    const tailX = m.x - Math.cos(m.angle) * m.len;
+                    const tailY = m.y - Math.sin(m.angle) * m.len;
+
+                    const grad = ctx.createLinearGradient(m.x, m.y, tailX, tailY);
+                    grad.addColorStop(0, `rgba(224, 242, 254, ${m.alpha})`);
+                    grad.addColorStop(0.35, `rgba(56, 189, 248, ${m.alpha * 0.75})`);
+                    grad.addColorStop(1, 'rgba(56, 189, 248, 0)');
+
+                    ctx.save();
+                    ctx.strokeStyle = grad;
+                    ctx.lineWidth = 2.2;
+                    ctx.lineCap = 'round';
+                    ctx.beginPath();
+                    ctx.moveTo(m.x, m.y);
+                    ctx.lineTo(tailX, tailY);
+                    ctx.stroke();
+                    ctx.restore();
+                }
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            initCosmicCanvas();
+            renderAll();
+            initFirebaseSync();
+        });
+    </script>
+</body>
+</html>
